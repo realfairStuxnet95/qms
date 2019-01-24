@@ -1,0 +1,7 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+# Rewrite for login script
+RewriteRule ^login$ access_system.php [NC,L]
+RewriteRule ^log_user$ App/Views/Login/login_request.php [NC,L]
+RewriteRule ^logout$ App/Views/Login/log_user_out.php [NC,L]
+RewriteRule ^dashboard$ web_home.php [NC,L]
