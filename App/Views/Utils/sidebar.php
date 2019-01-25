@@ -20,7 +20,7 @@
                $userType=(int)$_SESSION['user_type'];
                if($userType==2){
                   ?>
-               <li class="drawer-menu-item active ">
+               <li class="drawer-menu-item">
                   <a href="dashboard">
                   <i class="material-icons">poll</i>
                   <span class="drawer-menu-text">
@@ -28,14 +28,36 @@
                   </span>
                   </a>
                </li>
-               <li class="drawer-menu-item active ">
+               <li class="drawer-menu-item">
                   <a href="dashboard">
+                  <i class="material-icons">date_range</i>
+                  <span class="drawer-menu-text">
+                     Training Progress
+                  </span>
+                  </a>
+               </li>
+               <li class="drawer-menu-item">
+                  <a href="?request=display">
                   <i class="material-icons">track_changes</i>
                   <span class="drawer-menu-text">
                      Activity Tracking
                   </span>
                   </a>
                </li>
+             <li class="drawer-menu-item drawer-submenu">
+                 <a data-toggle="collapse" data-parent="#mainMenu" href="#" data-target="#formsMenu" aria-controls="formsMenu" aria-expanded="false" class="collapsed">
+                     <i class="material-icons">people</i>
+                     <span class="drawer-menu-text">Trainees</span>
+                  </a>
+                 <ul class="collapse " id="formsMenu">
+                     <li class="drawer-menu-item ">
+                        <a href="data?training=123&action=unapproved">UnApproved Trainees</a>
+                     </li>
+                     <li class="drawer-menu-item ">
+                        <a href="data?training=123&action=approved">Approved Trainees</a>
+                     </li>
+                 </ul>
+             </li>
                   <?php
                }elseif($userType==1){
                   ?>
@@ -48,7 +70,7 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
-                     <a href="dashboard">
+                     <a href="?request=upload_file">
                      <i class="material-icons">cloud_uploads</i>
                      <span class="drawer-menu-text">
                         Upload Trainees File
@@ -63,10 +85,34 @@
                      </span>
                      </a>
                   </li>
+                  <li class="drawer-menu-item">
+                     <a href="dashboard">
+                     <i class="material-icons">bookmarks</i>
+                     <span class="drawer-menu-text">
+                        Manage Training Sessions
+                     </span>
+                     </a>
+                  </li>
+                  <li class="drawer-menu-item">
+                     <a href="data?training=123&action=approved">
+                     <i class="material-icons">people</i>
+                     <span class="drawer-menu-text">
+                        Approved Trainees
+                     </span>
+                     </a>
+                  </li>
+                  <li class="drawer-menu-item">
+                     <a href="data?training=123">
+                        <i class="material-icons">bookmarks</i>
+                        <span class="drawer-menu-text">
+                           Uploaded File
+                        </span>
+                     </a>
+                  </li>
                   <?php
                }
                ?>
-               <li class="drawer-menu-item">
+               <li class="drawer-menu-item" style="display: none;">
                   <a href="projects.html">
                   <i class="material-icons">dns</i>
                   <span class="drawer-menu-text"> Projects/Tickets</span>

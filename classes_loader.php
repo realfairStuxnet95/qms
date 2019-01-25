@@ -11,6 +11,7 @@ require_once $root_url.'App/Controllers/Tables.php';
 require_once $root_url.'App/Controllers/Executor.php';
 //require_once $root_url.'App/Controllers/Utility.php';
 require_once $root_url.'App/Controllers/Login.php';
+require_once $root_url.'App/Controllers/File.php';
 $router=new Router();
 //echo $root_url;
 //define(STYLESHEET, "");
