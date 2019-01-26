@@ -13,5 +13,8 @@ class Tables {
 	public function time_slot(){
 		return 'time_slot';
 	}
+	public function system_tables(){
+		return 'system_tables';
+	}
 }
 ?>

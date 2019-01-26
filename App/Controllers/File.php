@@ -32,6 +32,13 @@ class File extends Execute{
 		//$update=$this->query_update(Tables::time_slot(),$new_slot,$new_value);
 		return $this->query_update(Tables::file_upload(),$where,$array);		
 	}
+
+	//get system tables
+	public function getTables($status){
+		$credentials=array("status"=>$status);
+		//return $this->select_all_order_by(Tables::time_slot(),"name",true);
+		return $this->select_multi_clause(Tables::system_tables(),$credentials);
+	}
 }
 $upload=new File();
 ?>

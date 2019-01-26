@@ -6,7 +6,7 @@
                <div class="media align-items-center">
                   <a href="index.html" class="drawer-brand-circle mr-2">S</a>
                   <div class="media-body">
-                     <a href="index.html" class="h5 m-0 text-link">QMS System</a>
+                     <a href="dashboard" class="h5 m-0 text-link">QMS System</a>
                   </div>
                </div>
             </div>
@@ -70,15 +70,15 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
-                     <a href="?request=upload_file">
+                     <a href="dashboard?request=upload_file">
                      <i class="material-icons">cloud_uploads</i>
                      <span class="drawer-menu-text">
-                        Upload Trainees File
+                        Upload Candidates File
                      </span>
                      </a>
                   </li>
                   <li class="drawer-menu-item">
-                     <a href="dashboard">
+                     <a href="tables?training=123">
                      <i class="material-icons">view_arrays</i>
                      <span class="drawer-menu-text">
                         Manage Tables
@@ -97,7 +97,7 @@
                      <a href="data?training=123&action=approved">
                      <i class="material-icons">people</i>
                      <span class="drawer-menu-text">
-                        Approved Trainees
+                        Approved Candidates
                      </span>
                      </a>
                   </li>
