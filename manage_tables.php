@@ -34,7 +34,7 @@
 
 <body>
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-fullbleed data-push data-responsive-width="992px" data-has-scrolling-region>
-        <?php include 'modal.php';?>
+        <?php include 'table_modal.php';?>
         <div class="mdk-drawer-layout__content">
             <!-- header-layout -->
             <div class="mdk-header-layout js-mdk-header-layout  mdk-header--fixed  mdk-header-layout__content--scrollable">
@@ -48,9 +48,18 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">
-                                   Manage Training Tables
-                                </h4>
+                              <div class="row">
+                                <div class="col-lg-3">
+                                  <h4 class="card-title">
+                                     Manage Training Tables
+                                  </h4>
+                                </div>
+                                <div class="col-lg-9">
+                                  <button class="btn btn-success" data-toggle="modal" data-target="#saveTableModal">
+                                    ADD NEW TABLE
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                             <!-- Modal -->
                             <div class="py-4">
