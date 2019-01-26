@@ -58,6 +58,17 @@ $(document).ready(function(){
 		saveData(input,"data?training=123");
 	});
 
+	$("#frm_save_table").submit(function(e){
+		e.preventDefault();
+		var Tablename=$("#Tablename").val();
+		var Tablenumber=$("#Tablenumber").val();
+		var input=[];
+		input[0]='save_table';
+		input[1]=Tablename;
+		input[2]=Tablenumber;
+		saveData(input,"tables?training=123");
+	});
+
 });
 
 function loadTime(){

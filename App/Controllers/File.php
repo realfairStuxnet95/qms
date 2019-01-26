@@ -39,6 +39,10 @@ class File extends Execute{
 		//return $this->select_all_order_by(Tables::time_slot(),"name",true);
 		return $this->select_multi_clause(Tables::system_tables(),$credentials);
 	}
+	public function saveTable($name,$capacity){
+		$array=array("name"=>$name,"capacity"=>$capacity,"status"=>'AVAILABLE');
+		return $this->multi_insert(Tables::system_tables(),$array);
+	}
 }
 $upload=new File();
 ?>

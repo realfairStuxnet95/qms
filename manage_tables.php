@@ -86,7 +86,7 @@
                                                ?>
                                                <tr>
                                                    <td>
-                                                       <?php echo $value['number']; ?>
+                                                       <?php echo $value['table_id']; ?>
                                                    </td>
                                                    <td>
                                                        <?php echo $value['name']; ?>

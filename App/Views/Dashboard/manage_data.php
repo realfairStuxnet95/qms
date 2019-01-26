@@ -20,7 +20,17 @@ if(isset($_POST['input'])){
 			}else{
 				echo "Select slot please";
 			}
-		}elseif($action=='check_slot'){
+		}elseif($action=='save_table'){
+			$tableName=$function->sanitize($input[1]);
+			$tableNumber=$function->sanitize($input[2]);
+			$state=$upload->saveTable($tableName,$tableNumber);
+			if($state){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}
+		elseif($action=='check_slot'){
 			$currentTime=$input[1];
 			$result=$upload->getActiveSlot($currentTime);
 			var_dump($result);

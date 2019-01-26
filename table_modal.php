@@ -13,15 +13,15 @@
                   <form id="frm_save_table">
                     <div class="form-group">
                       <label for="email">Name</label>
-                      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+                      <input type="text" class="form-control" id="Tablename" placeholder="Enter Name" name="name" required>
                     </div>
                     <div class="form-group">
                       <label for="pwd">Table Capacity</label>
-                      <input type="number" class="form-control" id="number" name="number" required>
+                      <input type="number" class="form-control" id="Tablenumber" name="number" required>
                     </div>
                     <button type="submit" class="btn btn-success">SAVE TABLE</button>
                   </form>
-                  <div id="divLoader" class="loading-circle-border" style="margin: 10px 40px auto;display: block;width: 80px;height: 80px;"></div>
+                  <div id="divLoader" class="loading-circle-border" style="margin: 10px 40px auto;display: none;width: 80px;height: 80px;"></div>
               </div>
             </div>
         </div>
