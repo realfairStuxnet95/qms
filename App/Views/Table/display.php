@@ -2,8 +2,13 @@
     <div class="row font-1">
       <div class="col-lg-12">
         <h2>Isaha: <i class="material-icons ml-auto text-muted">access_time</i> <span id="divTime"></span>
-          <span class="badge badge-success"><h2>Active Slot</h2></span>
+          <span class="badge badge-success" id="activeSlot"></span>
+          <button id="btnSound" class="btn btn-success btn-sm">PLAY ALARM</button>
         </h2>
+        <img id="imgStop" src="assets/images/stop.gif" style="width: 100px;height: auto;display: none;">
+        <audio id="alarmAudio" controls autoplay="autoplay" style="display: none;">
+            <source src="assets/audio/alarm.m4a" type="audio/mpeg">
+        </audio>
       </div>
     </div>
     <div class="row font-1">
@@ -53,7 +58,6 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Number</th>
-                                                <th>Slot </th>
                                                 <th>Date</th>
                                                 <th>Training Time</th>
                                                 <th>Status</th>

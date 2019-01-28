@@ -16,7 +16,7 @@ class File extends Execute{
 		return $this->select_all_order_by(Tables::time_slot(),"name",true);
 	}
 	public function getActiveSlot($currentTime){
-		$sql="SELECT * FROM time_slot WHERE time_range >=\"$currentTime\"";
+		$sql="SELECT * FROM `time_slot` WHERE time_range<=\"$currentTime\" AND end_time>=\"$currentTime\"";
 		return $this->querying($sql);
 	}
 	public function getSlotTime($slotId){

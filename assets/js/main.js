@@ -3,8 +3,10 @@ $(document).ready(function(){
 	var time_slot=[];
 	var end_time=[];
 	var input=[];
+	var alarm = document.getElementById("alarmAudio");
+	var playing=false;
 	loadTime();
-	//checkActiveSlot("16:05");
+	checkActiveSlot("16:05");
 	setInterval(function(){ loadTime("16:05");}, 1000);
 	$("#frmLogin").submit(function(e){
 		e.preventDefault();
@@ -38,6 +40,21 @@ $(document).ready(function(){
                 	alert(data);
                 }  
            }); 
+	});
+
+	$("#btnSound").click(function(){
+		if(playing==false){
+			alarm.play();
+			playing=true;
+			$(this).text("STOP");
+			$("#imgStop").show();
+		}else{
+			alarm.pause();
+			playing=false;
+			alarm.currentTime = 0;
+			$(this).text("PLAY");
+			$("#imgStop").hide();
+		}
 	});
 
 	$("a.btn_approve").click(function(){
@@ -116,7 +133,7 @@ function checkActiveSlot(currentTime){
 	$.post("request_handler",{
 		input:input
 	},function(response){
-		alert(response);
+		$("#activeSlot").html(response);
 	});
 }
 function saveData(input,redirectUrl){

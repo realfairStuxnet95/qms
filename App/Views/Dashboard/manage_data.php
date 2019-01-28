@@ -41,7 +41,16 @@ if(isset($_POST['input'])){
 		elseif($action=='check_slot'){
 			$currentTime=strtotime($input[1]);
 			$result=$upload->getActiveSlot($currentTime);
-			echo $currentTime;
+			if(count($result)>0){
+				$response='';
+				foreach ($result as $key => $value) {
+					$response=$function->changeTimeToString($value['time_range']).' - '.$function->changeTimeToString($value['end_time']);
+				}
+				echo $response;
+			}else{
+				echo "No Active Slot";
+			}
+			//echo $currentTime;
 		}elseif($action=='save_slot'){
 			$startTime=strtotime($input[1]);
 			$endTime=strtotime($input[2]);
