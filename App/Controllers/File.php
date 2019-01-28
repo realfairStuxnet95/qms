@@ -19,6 +19,21 @@ class File extends Execute{
 		$sql="SELECT * FROM time_slot WHERE time_range >=\"$currentTime\"";
 		return $this->querying($sql);
 	}
+	public function getSlotTime($slotId){
+		$credentials=array("slot_id"=>$slotId,'status'=>'AVAILABLE');
+		//return $this->select_all_order_by(Tables::time_slot(),"name",true);
+		$resultSet=$this->select_multi_clause(Tables::time_slot(),$credentials);
+		$return_set='';
+		foreach ($resultSet as $key => $value) {
+			$return_set=$this->changeTimeToString($value['time_range']).' - '.$this->changeTimeToString($value['end_time']);
+		}
+		return $return_set;
+	}
+    public function changeTimeToString($timed){
+        $discount_start_date = '1548662400';    
+        $start_date = date('H:i:s',$timed);
+        return $start_date;
+    }
 	public function approveTrainee($number,$slot_id){
 		$where=array("trainee_number"=>$number);
 		$array=array("slot_id"=>$slot_id,"status"=>'APPROVED');

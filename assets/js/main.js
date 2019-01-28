@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var input=[];
 	loadTime();
 	//checkActiveSlot("16:05");
-	setInterval(function(){ loadTime(); }, 1000);
+	setInterval(function(){ loadTime("16:05");}, 1000);
 	$("#frmLogin").submit(function(e){
 		e.preventDefault();
 		var email=$("#username").val();

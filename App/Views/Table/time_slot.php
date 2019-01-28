@@ -42,10 +42,14 @@
                                <?php echo $value['slot_id']; ?>
                            </td>
                            <td>
-                               <?php echo $value['time_range']; ?>
+                               <?php
+                                echo $function->changeTimeToString((int)$value['time_range']);
+                               ?>
                            </td>
                            <td>
-                               <?php echo $value['end_time']; ?>
+                               <?php
+                                echo $function->changeTimeToString((int)$value['end_time']);
+                               ?>
                            </td>
                            <td>
                                <?php

@@ -2,6 +2,11 @@
 
 class Validate{
 
+    public function changeTimeToString($timed){
+        $discount_start_date = '1548662400';    
+        $start_date = date('H:i:s',$timed);
+        return $start_date;
+    }
     //function to get extension of a file
     public function validate_image($str){
         $state=false;

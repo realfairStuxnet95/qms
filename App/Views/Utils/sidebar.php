@@ -29,7 +29,7 @@
                   </a>
                </li>
                <li class="drawer-menu-item">
-                  <a href="dashboard">
+                  <a href="tables?training=123&action=display#">
                   <i class="material-icons">date_range</i>
                   <span class="drawer-menu-text">
                      Training Progress
@@ -37,13 +37,16 @@
                   </a>
                </li>
                <li class="drawer-menu-item">
-                  <a href="?request=display">
+                  <a href="tables?training=123&action=display">
                   <i class="material-icons">track_changes</i>
                   <span class="drawer-menu-text">
                      Activity Tracking
                   </span>
                   </a>
                </li>
+               <li>
+                 
+                </li>
              <li class="drawer-menu-item drawer-submenu">
                  <a data-toggle="collapse" data-parent="#mainMenu" href="#" data-target="#formsMenu" aria-controls="formsMenu" aria-expanded="false" class="collapsed">
                      <i class="material-icons">people</i>

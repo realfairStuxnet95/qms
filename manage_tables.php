@@ -51,7 +51,10 @@
                         $action=$_GET['action'];
                         if($action=='time_slot'){
                           include 'App/Views/Table/time_slot.php';
-                        }else{
+                        }elseif($action=='display'){
+                          include 'App/Views/Table/display.php';
+                        }
+                        else{
                           include 'App/Views/Table/system_tables.php';
                         }
                       }else{

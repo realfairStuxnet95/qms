@@ -39,12 +39,12 @@ if(isset($_POST['input'])){
 			}
 		}
 		elseif($action=='check_slot'){
-			$currentTime=$input[1];
+			$currentTime=strtotime($input[1]);
 			$result=$upload->getActiveSlot($currentTime);
-			var_dump($result);
+			echo $currentTime;
 		}elseif($action=='save_slot'){
-			$startTime=$input[1];
-			$endTime=$input[2];
+			$startTime=strtotime($input[1]);
+			$endTime=strtotime($input[2]);
 			$save_status=$upload->saveSlot($startTime,$endTime);
 			if($save_status){
 				echo $success;

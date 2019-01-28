@@ -25,7 +25,7 @@
                        <div class="media align-items-center">
                            <div class="media-body lh-12">
                                <a href="#">
-                                 <?php echo $value['time_range'].' - '.$value['end_time'].' '.$value['name']; ?>
+                                 <?php echo $value['time_range'].' - '.$value['end_time']; ?>
                                </a>
                            </div>
                            <div class="lead">
