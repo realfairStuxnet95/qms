@@ -29,11 +29,36 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
+		}elseif($action=='remove_table'){
+			$tableId=$function->sanitize($input[1]);
+			$remove_status=$upload->removeTable($tableId);
+			if($remove_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
 		}
 		elseif($action=='check_slot'){
 			$currentTime=$input[1];
 			$result=$upload->getActiveSlot($currentTime);
 			var_dump($result);
+		}elseif($action=='save_slot'){
+			$startTime=$input[1];
+			$endTime=$input[2];
+			$save_status=$upload->saveSlot($startTime,$endTime);
+			if($save_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=='delete_slot'){
+			$slotId=$function->sanitize($input[1]);
+			$remove_status=$upload->removeSlot($slotId);
+			if($remove_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
 		}
 	}	
 }else{

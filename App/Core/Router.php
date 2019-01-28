@@ -73,6 +73,6 @@ class Router
         return $this->params['controller'];
     }
     public function loadView($view){
-        include "App/Views/".$view.".php";
+        include $_SERVER['DOCUMENT_ROOT']."/queue/App/Views/".$view.".php";
     }
 }

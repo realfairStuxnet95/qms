@@ -19,11 +19,6 @@ class File extends Execute{
 		$sql="SELECT * FROM time_slot WHERE time_range >=\"$currentTime\"";
 		return $this->querying($sql);
 	}
-	public function getTimeSlot(){
-		$credentials=array("status"=>'ACTIVE');
-		//return $this->select_all_order_by(Tables::time_slot(),"name",true);
-		return $this->select_multi_clause(Tables::time_slot(),$credentials);
-	}
 	public function approveTrainee($number,$slot_id){
 		$where=array("trainee_number"=>$number);
 		$array=array("slot_id"=>$slot_id,"status"=>'APPROVED');
@@ -42,6 +37,27 @@ class File extends Execute{
 	public function saveTable($name,$capacity){
 		$array=array("name"=>$name,"capacity"=>$capacity,"status"=>'AVAILABLE');
 		return $this->multi_insert(Tables::system_tables(),$array);
+	}
+	public function removeTable($tableId){
+		$data=array("status"=>'DELETED');
+		$where=array("table_id"=>$tableId);
+		return $this->query_update(Tables::system_tables(),$where,$data);
+	}
+	//save timeslot
+	public function saveSlot($startTime,$endTime){
+		$array=array("name"=>"Today TimeSlot","time_range"=>$startTime,"end_time"=>$endTime,"status"=>'AVAILABLE');
+		return $this->multi_insert(Tables::time_slot(),$array);
+	}
+	//get time slot
+	public function getTimeSlot($status){
+		$credentials=array("status"=>$status);
+		//return $this->select_all_order_by(Tables::time_slot(),"name",true);
+		return $this->select_multi_clause(Tables::time_slot(),$credentials);
+	}
+	public function removeSlot($slotId){
+		$data=array("status"=>'DELETED');
+		$where=array("slot_id"=>$slotId);
+		return $this->query_update(Tables::time_slot(),$where,$data);
 	}
 }
 $upload=new File();

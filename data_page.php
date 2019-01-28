@@ -108,16 +108,22 @@
                                                    </td>
                                                    <td>
                                                         <?php 
-                                                        if($value['status']=='UNAPPROVED'){
+                                                        if($_SESSION['user_type']==2){
+                                                          if($value['status']=='UNAPPROVED'){
+                                                              ?>
+                                                              <a class="btn btn-success btn_approve" name="<?php echo $value['trainee_names']; ?>" number="<?php echo $value['trainee_number']; ?>"  style='color: #fff;'>
+                                                                  APPROVE
+                                                              </a>
+                                                              <?php
+                                                          }elseif($value['status']=='APPROVED'){
                                                             ?>
-                                                            <a class="btn btn-success btn_approve" name="<?php echo $value['trainee_names']; ?>" number="<?php echo $value['trainee_number']; ?>"  style='color: #fff;'>
-                                                                APPROVE
-                                                            </a>
-                                                            <?php
-                                                        }elseif($value['status']=='APPROVED'){
+                                                            <a class="btn btn-success" style="color: #fff;" disabled>APPROVE</a>
+                                                            <?php 
+                                                          }
+                                                        }elseif($_SESSION['user_type']==1){
                                                           ?>
                                                           <a class="btn btn-success" style="color: #fff;" disabled>APPROVE</a>
-                                                          <?php 
+                                                          <?php
                                                         }
                                                         ?>
                                                    </td>

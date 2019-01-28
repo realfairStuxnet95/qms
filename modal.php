@@ -12,7 +12,7 @@
               <div class="card-body">
                 <form id="frm_approve">
                   <?php 
-                  $time_slot=$upload->getTimeSlot();
+                  $time_slot=$upload->getTimeSlot('AVAILABLE');
                   ?>
                     <select id="sel_slot" class="form-control form-control-lg">
                             <option value="">Select Time Slot</option>

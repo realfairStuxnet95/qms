@@ -78,6 +78,14 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
+                     <a href="data?training=123">
+                        <i class="material-icons">people</i>
+                        <span class="drawer-menu-text">
+                           Uploaded Candidates File
+                        </span>
+                     </a>
+                  </li>
+                  <li class="drawer-menu-item">
                      <a href="tables?training=123">
                      <i class="material-icons">view_arrays</i>
                      <span class="drawer-menu-text">
@@ -86,27 +94,19 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
-                     <a href="dashboard">
-                     <i class="material-icons">bookmarks</i>
+                     <a href="tables?training=123&action=time_slot">
+                     <i class="material-icons">access_time</i>
                      <span class="drawer-menu-text">
-                        Manage Training Sessions
+                        Manage Time Slot
                      </span>
                      </a>
                   </li>
                   <li class="drawer-menu-item">
                      <a href="data?training=123&action=approved">
-                     <i class="material-icons">people</i>
+                     <i class="material-icons">check</i>
                      <span class="drawer-menu-text">
                         Approved Candidates
                      </span>
-                     </a>
-                  </li>
-                  <li class="drawer-menu-item">
-                     <a href="data?training=123">
-                        <i class="material-icons">bookmarks</i>
-                        <span class="drawer-menu-text">
-                           Uploaded File
-                        </span>
                      </a>
                   </li>
                   <?php

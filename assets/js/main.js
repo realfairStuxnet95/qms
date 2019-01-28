@@ -2,6 +2,7 @@ $(document).ready(function(){
 	var url="log_user";
 	var time_slot=[];
 	var end_time=[];
+	var input=[];
 	loadTime();
 	//checkActiveSlot("16:05");
 	setInterval(function(){ loadTime(); }, 1000);
@@ -47,6 +48,23 @@ $(document).ready(function(){
 		$("#trainee_info").val(number);
 	});
 
+	$("a.tableDelete").click(function(){
+		var table_id=$(this).attr("table_id");
+		input[0]="remove_table";
+		input[1]=table_id;
+		if(confirm("Are you Sure you want to Delete this Table With ID : "+table_id)){
+			saveData(input,"tables?training=123");
+		}
+	});
+
+	$("a.slotDelete").click(function(){
+		var slot_id=$(this).attr("slot_id");
+		input[0]="delete_slot";
+		input[1]=slot_id;
+		if(confirm("Are you Sure you want to Delete this Time Slot With ID : "+slot_id)){
+			saveData(input,"tables?training=123&action=time_slot");
+		}
+	});
 	$("#frm_approve").submit(function(e){
 		e.preventDefault();
 		var trainee_info=$("#trainee_info").val();
@@ -67,6 +85,15 @@ $(document).ready(function(){
 		input[1]=Tablename;
 		input[2]=Tablenumber;
 		saveData(input,"tables?training=123");
+	});
+	$("#frm_save_slot").submit(function(e){
+		e.preventDefault();
+		var startTime=$("#startTime").val();
+		var endTime=$("#endTime").val();
+		input[0]='save_slot';
+		input[1]=startTime;
+		input[2]=endTime;
+		saveData(input,"tables?training=123&action=time_slot");
 	});
 
 });
@@ -115,7 +142,6 @@ function loginRequest(email,password){
 		hideLoader();
 		if(response.match("200")){
 			window.location="dashboard";
-			showError(response);
 		}else{
 			showError(response);
 		}
