@@ -93,9 +93,15 @@ class Execute extends Query{
 			return "INVALID INPUTS";
 		}
 	}
+	
 	public function querying($query){
 		return $this->select($query);
 	}
+
+	public function rows_counting($query){
+		return $this->rows($querying);
+	}
+
 	public function select_or_clause($table,$credentials){
 		$output=array();
 		if(is_array($credentials)){

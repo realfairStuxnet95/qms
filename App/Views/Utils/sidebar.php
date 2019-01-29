@@ -32,7 +32,7 @@
                   <a href="tables?training=123&action=display#">
                   <i class="material-icons">date_range</i>
                   <span class="drawer-menu-text">
-                     Training Progress
+                     Session Progress
                   </span>
                   </a>
                </li>
@@ -54,7 +54,7 @@
                   </a>
                  <ul class="collapse " id="formsMenu">
                      <li class="drawer-menu-item ">
-                        <a href="data?training=123&action=unapproved">UnApproved Trainees</a>
+                        <a href="data?training=123&action=unapproved">Un Approved Trainees</a>
                      </li>
                      <li class="drawer-menu-item ">
                         <a href="data?training=123&action=approved">Approved Trainees</a>

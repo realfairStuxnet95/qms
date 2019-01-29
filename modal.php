@@ -20,7 +20,7 @@
                             foreach ($time_slot as $key => $value) {
                               ?>
                               <option value="<?php echo $value['slot_id']; ?>">
-                                <?php echo $value['time_range'].' - '.$value['end_time']; ?>
+                                <?php echo $function->changeTimeToString($value['time_range']).' - '.$function->changeTimeToString($value['end_time']);?>
                               </option>
                               <?php
                             }

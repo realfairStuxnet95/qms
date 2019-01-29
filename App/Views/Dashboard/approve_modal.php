@@ -23,7 +23,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/queue/classes_loader.php';
                             foreach ($time_slot as $key => $value) {
                               ?>
                               <option>
-                                <?php echo $value['time_range'].' - '.$value['end_time']; ?>
+                                <?php echo $function->changeTimeToString($value['time_range']).' - '.$function->changeTimeToString($value['end_time']);?>
                               </option>
                               <?php
                             }

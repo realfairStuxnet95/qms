@@ -46,13 +46,13 @@ $(document).ready(function(){
 		if(playing==false){
 			alarm.play();
 			playing=true;
-			$(this).text("STOP");
+			$(this).text("STOP ALARM");
 			$("#imgStop").show();
 		}else{
 			alarm.pause();
 			playing=false;
 			alarm.currentTime = 0;
-			$(this).text("PLAY");
+			$(this).text("PLAY ALARM");
 			$("#imgStop").hide();
 		}
 	});

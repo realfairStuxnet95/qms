@@ -1,0 +1,4 @@
+1.date different and active slotactuvate
+2.sound alarm at the end of each sloat
+3.Compare arraylist
+4.check table which is not assigned to anyslot

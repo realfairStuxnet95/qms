@@ -48,9 +48,18 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">
-                                   Imported Trainees File
-                                </h4>
+                              <div class="row">
+                                <div class="col-lg-3">
+                                  <h4 class="card-title">
+                                     <b>Uploaded Candidates File</b>
+                                  </h4>
+                                </div>
+                                <div class="col-lg-9">
+                                  <a id="btnStartTraining" class="btn btn-success" href="tables?training=123&action=display">
+                                    START TRAINING SESSION
+                                  </a>
+                                </div>
+                              </div>
                             </div>
                             <!-- Modal -->
                             <div class="py-4">
