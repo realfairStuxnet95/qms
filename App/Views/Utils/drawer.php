@@ -21,7 +21,7 @@
                   </div>
                </div>
             </div>
-            <div class="drawer-spacer bg-body-bg">
+            <div class="drawer-spacer bg-body-bg" style="display: none;">
                <div class="d-flex justify-content-between mb-2">
                   <p class="h6 text-gray m-0"><i class="material-icons align-middle md-18 text-primary">monetization_on</i> Balance</p>
                   <span>$21,011</span>

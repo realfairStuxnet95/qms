@@ -11,15 +11,11 @@ if(isset($_POST['input'])){
 			$number=$function->sanitize($input[1]);
 			$slot_id=$function->sanitize($input[2]);
 			if($slot_id!=''){
-				if($upload->checkUsersSlot($slot_id)){
-					$state=$upload->approveTrainee($number,$slot_id,$upload->getFreeTable());
-					if($state){
-						echo $success;
-					}else{
-						echo $error;
-					}
+				$state=$upload->approveTrainee($number,$slot_id,$upload->getFreeTable());
+				if($state){
+					echo $success;
 				}else{
-					echo "No More Table Available For the Selected Slot";
+					echo $error;
 				}
 			}else{
 				echo "Select slot please";

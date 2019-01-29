@@ -4,7 +4,7 @@
          <nav class="drawer  drawer--dark">
             <div class="drawer-spacer">
                <div class="media align-items-center">
-                  <a href="index.html" class="drawer-brand-circle mr-2">S</a>
+                  <a href="dashboard" class="drawer-brand-circle mr-2">S</a>
                   <div class="media-body">
                      <a href="dashboard" class="h5 m-0 text-link">QMS System</a>
                   </div>
@@ -33,14 +33,6 @@
                   <i class="material-icons">date_range</i>
                   <span class="drawer-menu-text">
                      Session Progress
-                  </span>
-                  </a>
-               </li>
-               <li class="drawer-menu-item">
-                  <a href="tables?training=123&action=display">
-                  <i class="material-icons">track_changes</i>
-                  <span class="drawer-menu-text">
-                     Activity Tracking
                   </span>
                   </a>
                </li>
