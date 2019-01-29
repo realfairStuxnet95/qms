@@ -15,21 +15,21 @@ $number_trainees=count($trainees);
 </head>
 <body>
 
-<div class="jumbotron text-center" style="padding-top: 5px;padding-bottom: 10px;">
+<div class="jumbotron text-center" style="padding-top: 5px;padding-bottom: 10px;display: none;">
   <h1>Training List</h1>
   <p style="display: none;">Resize this responsive page to see the effect!</p> 
 </div>
   
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-lg-2">
       <h3>Batch 1</h3>
       <ul class="list-group">
       <?php 
       
       $counter=0;
       foreach ($trainees as $key => $value) {
-        if($counter<=25){
+        if($counter<=15){
           ?>
           <li class="list-group-item"><?php echo $value['trainee_names']; ?><br>
           <?php echo "Number: <span class='badge badge-success'>".$value['trainee_number'].'</span>'; ?><br>
@@ -46,7 +46,7 @@ $number_trainees=count($trainees);
     <?php 
     if($number_trainees>=50){
       ?>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <h3>Column 2</h3>
         <ul class="list-group">
           <?php 
@@ -73,7 +73,7 @@ $number_trainees=count($trainees);
     <?php 
     if($number_trainees>=75){
       ?>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <h3>Column 2</h3>
         <ul class="list-group">
           <?php 
@@ -97,17 +97,14 @@ $number_trainees=count($trainees);
       <?php
     }
     ?>
-    <?php 
-    if($number_trainees>=100){
-      ?>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <h3>Column 2</h3>
         <ul class="list-group">
           <?php 
           
           $counter=0;
           foreach ($trainees as $key => $value) {
-            if($counter>=75 && $counter<=100){
+            if($counter<=15){
               ?>
               <li class="list-group-item"><?php echo $value['trainee_names']; ?><br>
               <?php echo "Number: <span class='badge badge-success'>".$value['trainee_number'].'</span>'; ?><br>
@@ -121,9 +118,90 @@ $number_trainees=count($trainees);
             
         </ul>
       </div>
-      <?php
-    }
-    ?>
+      <div class="col-sm-2">
+        <h3>Column 2</h3>
+        <ul class="list-group">
+          <?php 
+          
+          $counter=0;
+          foreach ($trainees as $key => $value) {
+            if($counter<=15){
+              ?>
+              <li class="list-group-item"><?php echo $value['trainee_names']; ?><br>
+              <?php echo "Number: <span class='badge badge-success'>".$value['trainee_number'].'</span>'; ?><br>
+              <?php echo "Table: ".$upload->getTable($value['table_id']); ?>
+            </li>
+              <?php
+            }
+            $counter++;
+          }
+          ?>
+            
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h3>Column 2</h3>
+        <ul class="list-group">
+          <?php 
+          
+          $counter=0;
+          foreach ($trainees as $key => $value) {
+            if($counter<=15){
+              ?>
+              <li class="list-group-item"><?php echo $value['trainee_names']; ?><br>
+              <?php echo "Number: <span class='badge badge-success'>".$value['trainee_number'].'</span>'; ?><br>
+              <?php echo "Table: ".$upload->getTable($value['table_id']); ?>
+            </li>
+              <?php
+            }
+            $counter++;
+          }
+          ?>
+            
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h3>Column 2</h3>
+        <ul class="list-group">
+          <?php 
+          
+          $counter=0;
+          foreach ($trainees as $key => $value) {
+            if($counter<=15){
+              ?>
+              <li class="list-group-item"><?php echo $value['trainee_names']; ?><br>
+              <?php echo "Number: <span class='badge badge-success'>".$value['trainee_number'].'</span>'; ?><br>
+              <?php echo "Table: ".$upload->getTable($value['table_id']); ?>
+            </li>
+              <?php
+            }
+            $counter++;
+          }
+          ?>
+            
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h3>Column 2</h3>
+        <ul class="list-group">
+          <?php 
+          
+          $counter=0;
+          foreach ($trainees as $key => $value) {
+            if($counter<=15){
+              ?>
+              <li class="list-group-item"><?php echo $value['trainee_names']; ?><br>
+              <?php echo "Number: <span class='badge badge-success'>".$value['trainee_number'].'</span>'; ?><br>
+              <?php echo "Table: ".$upload->getTable($value['table_id']); ?>
+            </li>
+              <?php
+            }
+            $counter++;
+          }
+          ?>
+            
+        </ul>
+      </div>
   </div>
 </div>
 
