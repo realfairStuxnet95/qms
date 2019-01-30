@@ -6,7 +6,7 @@ $number_trainees=count($trainees);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Session Progress</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -15,9 +15,11 @@ $number_trainees=count($trainees);
 </head>
 <body>
 
-<div class="jumbotron text-center" style="padding-top: 5px;padding-bottom: 10px;display: none;">
-  <h1>Training List</h1>
-  <p style="display: none;">Resize this responsive page to see the effect!</p> 
+<div class="jumbotron text-center" style="padding-top: 5px;padding-bottom: 10px;display: block;">
+  <h3>Training List</h3>
+  <p>
+    <span id="displayTime" class="badge badge-success" style="background: #009966;font-size: 1em;">Isaha:</span>
+  </p> 
 </div>
   
 <div class="container">
@@ -204,6 +206,6 @@ $number_trainees=count($trainees);
       </div>
   </div>
 </div>
-
+<script src="assets/js/main.js"></script>
 </body>
 </html>

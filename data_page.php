@@ -156,7 +156,9 @@
          <?php $router->loadView("Utils/drawer"); ?>
 
     </div>
-    <?php $router->loadView("Utils/data_script"); ?>
+    <?php 
+    include 'App/Views/Utils/data_script.php';
+    ?>
 </body>
 
 </html>
