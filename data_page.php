@@ -55,7 +55,7 @@
                                   </h4>
                                 </div>
                                 <div class="col-lg-9">
-                                  <a id="btnStartTraining" class="btn btn-success" href="display" target="_blank">
+                                  <a id="btnStartTraining" class="btn btn-success" href="output" target="_blank">
                                     START TRAINING SESSION
                                   </a>
                                 </div>
