@@ -12,15 +12,15 @@
               <div class="card-body">
                 <form id="frm_approve">
                   <?php 
-                  $time_slot=$upload->getTimeSlot('AVAILABLE');
+                  $time_slot=$upload->getTimeSlot('ACTIVE');
                   ?>
                     <select id="sel_slot" class="form-control form-control-lg">
                             <option value="">Select Time Slot</option>
                             <?php 
                             foreach ($time_slot as $key => $value) {
                               ?>
-                              <option value="<?php echo $value['slot_id']; ?>">
-                                <?php echo $function->changeTimeToString($value['time_range']).' - '.$function->changeTimeToString($value['end_time']);?>
+                              <option value="<?php echo $value['id']; ?>">
+                                <?php echo $value['start_time'].' - '.$value['end_time'];?>
                               </option>
                               <?php
                             }

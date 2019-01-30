@@ -10,6 +10,8 @@ if(isset($_POST['input'])){
 		if($action=='approve_user'){
 			$number=$function->sanitize($input[1]);
 			$slot_id=$function->sanitize($input[2]);
+			// echo $slot_id;
+			// die();
 			if($slot_id!=''){
 				$state=$upload->approveTrainee($number,$slot_id,$upload->getFreeTable());
 				if($state){
@@ -52,8 +54,8 @@ if(isset($_POST['input'])){
 			}
 			//echo $currentTime;
 		}elseif($action=='save_slot'){
-			$startTime=strtotime($input[1]);
-			$endTime=strtotime($input[2]);
+			$startTime=$input[1];
+			$endTime=$input[2];
 			$save_status=$upload->saveSlot($startTime,$endTime);
 			if($save_status){
 				echo $success;

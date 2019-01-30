@@ -11,7 +11,7 @@ class Tables {
 		return 'uploaded_file';
 	}
 	public function time_slot(){
-		return 'time_slot';
+		return 'display_test';
 	}
 	public function system_tables(){
 		return 'system_tables';

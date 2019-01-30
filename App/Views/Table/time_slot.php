@@ -31,29 +31,29 @@
                     <?php
                     $systemSlot=array();
                     if(isset($_GET['action']) && $_GET['action']=='available'){
-                      $systemSlot=$upload->getTimeSlot('AVAILABLE');
+                      $systemSlot=$upload->getTimeSlot('ACTIVE');
                     }else{
-                      $systemSlot=$upload->getTimeSlot('AVAILABLE');
+                      $systemSlot=$upload->getTimeSlot('ACTIVE');
                     }
                     foreach ($systemSlot as $key => $value) {
                        ?>
                        <tr>
                            <td>
-                               <?php echo $value['slot_id']; ?>
+                               <?php echo $value['id']; ?>
                            </td>
                            <td>
                                <?php
-                                echo $function->changeTimeToString((int)$value['time_range']);
+                                echo $value['start_time'];
                                ?>
                            </td>
                            <td>
                                <?php
-                                echo $function->changeTimeToString((int)$value['end_time']);
+                                echo $value['end_time'];
                                ?>
                            </td>
                            <td>
                                <?php
-                                if($value['status']=='AVAILABLE'){
+                                if($value['status']=='ACTIVE'){
                                   ?>
                                   <span class="badge badge-success">
                                     <?php echo $value['status']; ?>
@@ -69,7 +69,7 @@
                                ?>
                            </td>
                            <td>
-                             <a slot_id="<?php echo $value['slot_id']; ?>" class='btn btn-danger slotDelete' href="#">
+                             <a slot_id="<?php echo $value['id']; ?>" class='btn btn-danger slotDelete' href="#">
                                DELETE
                              </a>
                            </td>

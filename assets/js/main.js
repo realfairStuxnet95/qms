@@ -60,10 +60,9 @@ $(document).ready(function(){
 	$("a.btn_approve").click(function(){
 		var names=$(this).attr("name");
 		var number=$(this).attr("number");
-		alert();
-		// $("#modal123").modal();
-		// $("#p_trainee").html("You are assigning Time slot to "+names+" with Id number: "+number);
-		// $("#trainee_info").val(number);
+		$("#modal123").modal();
+		$("#p_trainee").html("You are assigning Time slot to "+names+" with Id number: "+number);
+		$("#trainee_info").val(number);
 	});
 
 	$("a.tableDelete").click(function(){

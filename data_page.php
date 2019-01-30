@@ -67,6 +67,7 @@
                                     <table id="data-table" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
+                                              <th>System ID</th>
                                                 <th>Name</th>
                                                 <th>Number</th>
                                                 <th>Date</th>
@@ -86,6 +87,9 @@
                                             foreach ($trainees as $key => $value) {
                                                ?>
                                                <tr>
+                                                  <td>
+                                                    <?php echo $value['file_id']; ?>
+                                                  </td>
                                                    <td>
                                                        <?php echo $value['trainee_names']; ?>
                                                    </td>

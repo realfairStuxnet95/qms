@@ -39,12 +39,7 @@ class File extends Execute{
 		$array=array("slot_id"=>$slot_id,"table_id"=>$table_id,"status"=>'APPROVED');
 		$new_slot=array("table_id"=>$table_id);
 		$new_value=array("status"=>'TAKEN');
-		$update=$this->query_update(Tables::system_tables(),$new_slot,$new_value);
-		if($update){
-			return $this->query_update(Tables::file_upload(),$where,$array);
-		}else{
-			return false;
-		}
+		return $this->query_update(Tables::file_upload(),$where,$array);
 				
 	}
 
@@ -80,7 +75,7 @@ class File extends Execute{
 	}
 	//save timeslot
 	public function saveSlot($startTime,$endTime){
-		$array=array("name"=>"Today TimeSlot","time_range"=>$startTime,"end_time"=>$endTime,"status"=>'AVAILABLE');
+		$array=array("start_time"=>$startTime,"end_time"=>$endTime,"status"=>'ACTIVE');
 		return $this->multi_insert(Tables::time_slot(),$array);
 	}
 	//get time slot
@@ -91,7 +86,7 @@ class File extends Execute{
 	}
 	public function removeSlot($slotId){
 		$data=array("status"=>'DELETED');
-		$where=array("slot_id"=>$slotId);
+		$where=array("id"=>$slotId);
 		return $this->query_update(Tables::time_slot(),$where,$data);
 	}
 
