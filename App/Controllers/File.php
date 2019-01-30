@@ -92,12 +92,12 @@ class File extends Execute{
 
 	//Manage Tables
 	public function getFreeTables(){
-		$query="SELECT * FROM ".Tables::system_tables()." WHERE status='AVAILABLE'";
+		$query="SELECT system_tables.number FROM system_tables INNER JOIN uploaded_file ON system_tables.table_id!=uploaded_file.table_id";
 		return $this->querying($query);
 	}
 
 	public function getFreeTable(){
-		$query="SELECT * FROM ".Tables::system_tables()." WHERE status='AVAILABLE'";
+		$query="SELECT * FROM system_tables WHERE NOT EXISTS(SELECT table_id FROM uploaded_file WHERE system_tables.table_id = uploaded_file.table_id)";
 		$resultSet=$this->querying($query);
 		$table_id=0;
 		foreach ($resultSet as $key => $value) {

@@ -13,7 +13,10 @@ if(isset($_POST['input'])){
 			// echo $slot_id;
 			// die();
 			if($slot_id!=''){
-				$state=$upload->approveTrainee($number,$slot_id,$upload->getFreeTable());
+				$free_table=$upload->getFreeTable();
+				// echo $free_table;
+				// die();
+				$state=$upload->approveTrainee($number,$slot_id,$free_table);
 				if($state){
 					echo $success;
 				}else{
