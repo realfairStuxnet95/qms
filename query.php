@@ -6,8 +6,8 @@ $db='queue_store';
 $con=mysqli_connect($server,$user,$pwd,$db);
 if($con){
 	if(isset($_POST['currentTime']) && $_POST['currentTime']!=''){
-		$currentTime=substr($_POST['currentTime'],0,5);
-		//echo $currentTime;
+		$currentTime=formatTime(substr($_POST['currentTime'],0,5));
+		// echo $currentTime;
 		// die();
 		$query=mysqli_query($con,"SELECT * FROM display_test WHERE start_time<=\"$currentTime\" AND end_time>=\"$currentTime\" AND status!='DELETED'");
 		?>
@@ -37,6 +37,16 @@ if($con){
 	die(mysqli_error($con));
 }
 
+function formatTime($time){
+  $last_char=substr($time, -1);
+  $new_time='';
+  if($last_char==':'){
+    $new_time=substr($time,0,4);
+  }else{
+    $new_time=$time;
+  }
+  return $new_time;
+}
 function getUser($slotId){
 $server="localhost";
 $user="root";
