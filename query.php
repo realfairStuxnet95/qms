@@ -41,7 +41,7 @@ function formatTime($time){
   $last_char=substr($time, -1);
   $new_time='';
   if($last_char==':'){
-    $new_time=substr($time,0,4);
+    $new_time='0'.substr($time,0,4);
   }else{
     $new_time=$time;
   }
