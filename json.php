@@ -23,6 +23,9 @@ if($con){
 			}else{
 				echo "System Error.Contact System Administrators";
 			}
+		}else{
+			$data[]=array("No Record Found");
+			echo json_encode($data);
 		}
 		
 	}else{
