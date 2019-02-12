@@ -42,7 +42,7 @@
              <li class="drawer-menu-item drawer-submenu">
                  <a data-toggle="collapse" data-parent="#mainMenu" href="#" data-target="#formsMenu" aria-controls="formsMenu" aria-expanded="false" class="collapsed">
                      <i class="material-icons">people</i>
-                     <span class="drawer-menu-text">Trainees</span>
+                     <span class="drawer-menu-text">Candidates list</span>
                   </a>
                  <ul class="collapse " id="formsMenu">
                      <li class="drawer-menu-item ">
