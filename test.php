@@ -13,5 +13,5 @@ require 'classes_loader.php';
 // $value=array_diff($array, $array1);
 // arra
 // var_dump($value);
-var_dump($upload->checkTables(10,8));
+echo $upload->getFreeTable();
 ?>

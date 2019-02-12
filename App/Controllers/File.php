@@ -34,13 +34,17 @@ class File extends Execute{
         $start_date = date('H:i:s',$timed);
         return $start_date;
     }
-	public function approveTrainee($number,$slot_id,$table_id){
+	public function approveTrainee($number,$table_id){
 		$where=array("trainee_number"=>$number);
-		$array=array("slot_id"=>$slot_id,"table_id"=>$table_id,"status"=>'APPROVED');
+		$array=array("table_id"=>$table_id,"status"=>'APPROVED');
 		$new_slot=array("table_id"=>$table_id);
 		$new_value=array("status"=>'TAKEN');
+		$new_status=$this->query_update(Tables::system_tables(),$new_slot,$new_value);
 		return $this->query_update(Tables::file_upload(),$where,$array);
 				
+	}
+	public function getFreeSystemTables(){
+
 	}
 
 	//get system tables
@@ -96,8 +100,13 @@ class File extends Execute{
 		return $this->querying($query);
 	}
 
+	public function validateNID($nid){
+		$query="SELECT * FROM uploaded_file WHERE trainee_number=\"$nid\"";
+		$resultSet=$this->querying($query);
+		return $resultSet;
+	}
 	public function getFreeTable(){
-		$query="SELECT * FROM system_tables WHERE NOT EXISTS(SELECT table_id FROM uploaded_file WHERE system_tables.table_id = uploaded_file.table_id)";
+		$query="SELECT * FROM system_tables WHERE status='AVAILABLE'";
 		$resultSet=$this->querying($query);
 		$table_id=0;
 		foreach ($resultSet as $key => $value) {
