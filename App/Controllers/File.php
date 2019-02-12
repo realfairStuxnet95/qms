@@ -36,7 +36,7 @@ class File extends Execute{
     }
 	public function approveTrainee($number,$table_id){
 		$where=array("trainee_number"=>$number);
-		$array=array("table_id"=>$table_id,"status"=>'APPROVED');
+		$array=array("table_id"=>$table_id,"status"=>'APPROVED','train_date'=>date("d/m/Y"));
 		$new_slot=array("table_id"=>$table_id);
 		$new_value=array("status"=>'TAKEN');
 		$new_status=$this->query_update(Tables::system_tables(),$new_slot,$new_value);

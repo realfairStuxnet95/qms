@@ -13,5 +13,5 @@ require 'classes_loader.php';
 // $value=array_diff($array, $array1);
 // arra
 // var_dump($value);
-echo $upload->getFreeTable();
+echo date("d/m/Y");
 ?>
