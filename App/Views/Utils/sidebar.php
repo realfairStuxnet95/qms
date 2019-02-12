@@ -84,7 +84,7 @@
                      <a href="tables?training=123">
                      <i class="material-icons">view_arrays</i>
                      <span class="drawer-menu-text">
-                        Manage Tables
+                        Manage Computers
                      </span>
                      </a>
                   </li>
