@@ -1,4 +1,5 @@
-<?php 
+<?php
+  $title='';
    require 'authorization.php';
    require 'classes_loader.php';
    if(isset($_GET['training']) && $_GET['training']!=''){
@@ -51,12 +52,19 @@
                               <div class="row">
                                 <div class="col-lg-3">
                                   <h4 class="card-title">
-                                     <b>Uploaded Candidates File</b>
+                                    <?php 
+                                      if(isset($_GET['action']) && $_GET['action']=='approved'){
+                                        $title="Checked In List"
+                                      }else{
+                                        $title="No Show List";
+                                      }
+                                    ?>
+                                     <b><?php echo $title; ?></b>
                                   </h4>
                                 </div>
                                 <div class="col-lg-9">
                                   <a id="btnStartTraining" class="btn btn-success" href="output" target="_blank">
-                                    START TRAINING SESSION
+                                    DISPLAY QUEUE
                                   </a>
                                 </div>
                               </div>
