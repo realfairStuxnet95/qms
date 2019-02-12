@@ -54,7 +54,7 @@
                                   <h4 class="card-title">
                                     <?php 
                                       if(isset($_GET['action']) && $_GET['action']=='approved'){
-                                        $title="Checked In List"
+                                        $title="Checked In List";
                                       }else{
                                         $title="No Show List";
                                       }
