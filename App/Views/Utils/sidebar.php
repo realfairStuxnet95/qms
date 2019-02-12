@@ -46,10 +46,10 @@
                   </a>
                  <ul class="collapse " id="formsMenu">
                      <li class="drawer-menu-item ">
-                        <a href="data?training=123&action=unapproved">Un Approved Trainees</a>
+                        <a href="data?training=123&action=unapproved">No Show List</a>
                      </li>
                      <li class="drawer-menu-item ">
-                        <a href="data?training=123&action=approved">Approved Trainees</a>
+                        <a href="data?training=123&action=approved">Checked IN List</a>
                      </li>
                  </ul>
              </li>
