@@ -4,12 +4,12 @@
       <div class="row">
         <div class="col-lg-3">
           <h4 class="card-title">
-             Manage Training Tables
+             Manage System Computers
           </h4>
         </div>
         <div class="col-lg-9">
           <button class="btn btn-success" data-toggle="modal" data-target="#saveTableModal">
-            ADD NEW TABLE
+            ADD NEW COMPUTER
           </button>
         </div>
       </div>
