@@ -24,8 +24,8 @@ require 'classes_loader.php';
 
             <div class="container h-vh d-flex justify-content-center align-items-center flex-column">
                 <div class="d-flex justify-content-center align-items-center mb-3">
-                    <a href="index.html" class="drawer-brand-circle mr-2">QM</a>
-                    <h2 class="ml-2 text-bg mb-0"><strong style="display: none;">Queue Management</strong></h2>
+                    <img src="assets/images/police.png">
+                    <h2 class="ml-2 text-bg mb-0"><strong style="display: block;">Queue Management</strong></h2>
                 </div>
                 <div class="row w-100 justify-content-center">
                     <div class="card card-login mb-3">
