@@ -23,7 +23,7 @@
 
 
     <link type="text/css" href="assets/css/vendor-bootstrap-datatables.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
       <?php 

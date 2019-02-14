@@ -77,6 +77,11 @@ class File extends Execute{
 		$where=array("table_id"=>$tableId);
 		return $this->query_update(Tables::system_tables(),$where,$data);
 	}
+	public function desactivatePc($tableId){
+		$data=array("status"=>'DESACTIVATED');
+		$where=array("table_id"=>$tableId);
+		return $this->query_update(Tables::system_tables(),$where,$data);
+	}
 	//save timeslot
 	public function saveSlot($startTime,$endTime){
 		$array=array("start_time"=>$startTime,"end_time"=>$endTime,"status"=>'ACTIVE');

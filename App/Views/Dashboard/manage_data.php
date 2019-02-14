@@ -42,6 +42,14 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
+		}elseif($action=='desactivate_pc'){
+			$tableId=$function->sanitize($input[1]);
+			$status=$upload->desactivatePc($tableId);
+			if($status){
+				$success;
+			}else{
+				echo $error;
+			}
 		}
 		elseif($action=='check_slot'){
 			$currentTime=strtotime($input[1]);

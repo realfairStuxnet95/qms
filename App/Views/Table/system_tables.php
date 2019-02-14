@@ -61,9 +61,30 @@
                                ?>
                            </td>
                            <td>
-                             <a table_id="<?php echo $value['table_id']; ?>" class='btn btn-danger tableDelete' href="#">
-                               DELETE
-                             </a>
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-primary">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <?php 
+                              if($value['status']=='AVAILABLE'){
+                                ?>
+                                <a table_id="<?php echo $value['table_id']; ?>" class="btn btn-warning btnDesactivatePc" data-toggle="tooltip" title="Desactivate Computer!" style='color: #fff;'>
+                                  <i class="fa fa-eye-slash"></i>
+                                </a>
+                                <?php
+                              }elseif($value['status']=='TAKEN'){
+                                ?>
+                                <a table_id="<?php echo $value['table_id']; ?>" class="btn btn-success" data-toggle="tooltip" title="Desactivate Computer!" style='color: #fff;'>
+                                  <i class="fa fa-eye"></i>
+                                </a>
+                                <?php
+                              }
+                              ?>
+                              <a table_id="<?php echo $value['table_id']; ?>" class='btn btn-danger tableDelete' style='color: #fff;' data-toggle="tooltip" title="Delete Computer!">
+                                <i class="fa fa-close"></i>
+                              </a>
+                            </div>
+
                            </td>
                        </tr>
                        <?php

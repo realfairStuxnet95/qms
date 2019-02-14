@@ -73,7 +73,14 @@ $(document).ready(function(){
 			saveData(input,"tables?training=123");
 		}
 	});
-
+	$("a.btnDesactivatePc").click(function(){
+		var table_id=$(this).attr("table_id");
+		input[0]="desactivate_pc";
+		input[1]=table_id;
+		if(confirm("Are you Sure you want to Desactivate this PC With ID : "+table_id)){
+			saveData(input,"tables?training=123");
+		}
+	});
 	$("a.slotDelete").click(function(){
 		var slot_id=$(this).attr("slot_id");
 		input[0]="delete_slot";
@@ -147,6 +154,7 @@ function saveData(input,redirectUrl){
 			window.location=redirectUrl;
 		}else{
 			alert(response);
+			window.location=redirectUrl;
 		}
 	});
 }
