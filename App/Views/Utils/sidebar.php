@@ -65,6 +65,14 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
+                     <a href="dashboard">
+                     <i class="material-icons">people</i>
+                     <span class="drawer-menu-text">
+                        Manage System Users
+                     </span>
+                     </a>
+                  </li>
+                  <li class="drawer-menu-item">
                      <a href="dashboard?request=upload_file">
                      <i class="material-icons">cloud_uploads</i>
                      <span class="drawer-menu-text">
