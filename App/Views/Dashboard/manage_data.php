@@ -42,11 +42,47 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
-		}elseif($action=='desactivate_pc'){
+		}elseif($action=='remove_user'){
+			$userId=$function->sanitize($input[1]);
+			$remove_status=$upload->removeUser($userId);
+			if($remove_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=='disable_user'){
+			$userId=$function->sanitize($input[1]);
+			$remove_status=$upload->desactivateUser($userId);
+			if($remove_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=='activate_user'){
+			$userId=$function->sanitize($input[1]);
+			$remove_status=$upload->activateUser($userId);
+			if($remove_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}
+		elseif($action=='desactivate_pc'){
 			$tableId=$function->sanitize($input[1]);
 			$status=$upload->desactivatePc($tableId);
 			if($status){
 				$success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=='save_user'){
+			$names=$function->sanitize($input[1]);
+			$email=$function->sanitize($input[2]);
+			$type=$function->sanitize($input[3]);
+			$pwd=$function->sanitize($input[4]);
+			$save_status=$upload->saveUser($names,$email,$type,$pwd);
+			if($save_status){
+				echo $success;
 			}else{
 				echo $error;
 			}

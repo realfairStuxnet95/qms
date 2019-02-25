@@ -2,8 +2,8 @@
 
 class File extends Execute{
 
-	public function insertTrainee($training_id,$trainee_names,$trainee_number,$train_date,$train_time){
-		$array=array("training_id"=>$training_id,"trainee_names"=>$trainee_names,"trainee_number"=>$trainee_number,"train_date"=>$train_date,"train_time"=>$train_time,"status"=>'UNAPPROVED');
+	public function insertTrainee($training_id,$trainee_names,$trainee_number,$reg_id,$train_date,$train_time){
+		$array=array("training_id"=>$training_id,"trainee_names"=>$trainee_names,"trainee_number"=>$trainee_number,"reg_id"=>$reg_id,"train_date"=>$train_date,"train_time"=>$train_time,"status"=>'UNAPPROVED');
 		return $this->multi_insert(Tables::file_upload(),$array);
 	}
 
@@ -14,6 +14,10 @@ class File extends Execute{
 	}
 	public function loadTimeslot(){
 		return $this->select_all_order_by(Tables::time_slot(),"name",true);
+	}
+	public function loadSystemUsers(){
+		$query="SELECT * FROM ".Tables::users()." WHERE status!='DELETED' ORDER BY names DESC";
+		return $this->querying($query);
 	}
 	public function getActiveSlot($currentTime){
 		$sql="SELECT * FROM `time_slot` WHERE time_range<=\"$currentTime\" AND end_time>=\"$currentTime\"";
@@ -76,6 +80,25 @@ class File extends Execute{
 		$data=array("status"=>'DELETED');
 		$where=array("table_id"=>$tableId);
 		return $this->query_update(Tables::system_tables(),$where,$data);
+	}
+	public function removeUser($userId){
+		$data=array("status"=>'DELETED');
+		$where=array("user_id"=>$userId);
+		return $this->query_update(Tables::users(),$where,$data);
+	}
+	public function saveUser($names,$email,$type,$pwd){
+		$array=array("names"=>$names,"email"=>$email,"user_type"=>$type,"password"=>$pwd,'status'=>'ACTIVE');
+		return $this->multi_insert(Tables::users(),$array);
+	}
+	public function desactivateUser($userId){
+		$data=array("status"=>'INACTIVE');
+		$where=array("user_id"=>$userId);
+		return $this->query_update(Tables::users(),$where,$data);
+	}
+	public function activateUser($userId){
+		$data=array("status"=>'ACTIVE');
+		$where=array("user_id"=>$userId);
+		return $this->query_update(Tables::users(),$where,$data);
 	}
 	public function desactivatePc($tableId){
 		$data=array("status"=>'DESACTIVATED');

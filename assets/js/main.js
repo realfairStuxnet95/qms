@@ -38,6 +38,7 @@ $(document).ready(function(){
                 success: function(data)  
                 {  
                 	alert(data);
+                	window.location='data?training=123';
                 }  
            }); 
 	});
@@ -64,7 +65,30 @@ $(document).ready(function(){
 		$("#p_trainee").html("You are assigning Time slot to "+names+" with Id number: "+number);
 		$("#trainee_info").val(number);
 	});
-
+	$("a.deleteUser").click(function(){
+		var user_id=$(this).attr("user_id");
+		input[0]="remove_user";
+		input[1]=user_id;
+		if(confirm("Are you Sure you want to Delete this User With ID : "+user_id)){
+			saveData(input,"dashboard?request=system_users");
+		}
+	});
+	$("a.desactivateUser").click(function(){
+		var user_id=$(this).attr("user_id");
+		input[0]="disable_user";
+		input[1]=user_id;
+		if(confirm("Are you Sure you want to Desactivate this User With ID : "+user_id+" You can Activate Him/Her as you want")){
+			saveData(input,"dashboard?request=system_users");
+		}
+	});
+	$("a.activateUser").click(function(){
+		var user_id=$(this).attr("user_id");
+		input[0]="activate_user";
+		input[1]=user_id;
+		if(confirm("Are you Sure you want to Activate this User With ID : "+user_id)){
+			saveData(input,"dashboard?request=system_users");
+		}
+	});
 	$("a.tableDelete").click(function(){
 		var table_id=$(this).attr("table_id");
 		input[0]="remove_table";
@@ -87,6 +111,29 @@ $(document).ready(function(){
 		input[1]=slot_id;
 		if(confirm("Are you Sure you want to Delete this Time Slot With ID : "+slot_id)){
 			saveData(input,"tables?training=123&action=time_slot");
+		}
+	});
+	$("#frm_save_user").submit(function(e){
+		e.preventDefault();
+		var names=$("#names").val();
+		var email=$("#email").val();
+		var user_type=$("#select_type").val();
+		var pwd=$("#pwd").val();
+		var cpwd=$("#cpwd").val();
+
+		if(pwd.length>=6){
+			if(pwd.match(cpwd)){
+				input[0]='save_user';
+				input[1]=names;
+				input[2]=email;
+				input[3]=user_type;
+				input[4]=pwd;
+				saveData(input,"dashboard?request=system_users");
+			}else{
+				alert("Passwords Do not Match");
+			}
+		}else{
+			alert("Password Must atleast 6 Characters");
 		}
 	});
 	$("#frm_approve").submit(function(e){

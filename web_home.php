@@ -12,6 +12,7 @@
       <link type="text/css" href="assets/css/vendor-morris.css" rel="stylesheet">
       <link type="text/css" href="assets/css/vendor-bootstrap-datepicker.css" rel="stylesheet">
       <!-- Prevent the demo from appearing in search engines -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <meta name="robots" content="noindex">
       <?php 
          $router->loadView("Utils/stylesheet");
@@ -30,9 +31,12 @@
                if(isset($_GET['request']) && $_GET['request']!=''){
                   $request=$_GET['request'];
                   $valid_request=array("display","home","upload_file","data?training=123");
-                  if($request=='home'){
-
-                  }elseif($request=='upload_file'){
+                  if($request=='system_users'){
+                    include 'App/Views/Dashboard/system_users.php';
+                  }elseif($request=='add_user'){
+                    include 'App/Views/Dashboard/add_user.php';
+                  }
+                  elseif($request=='upload_file'){
                      $router->loadView("Dashboard/".$request);
                   }elseif($request=='display'){
                      include 'display.php';

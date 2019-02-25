@@ -65,7 +65,7 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
-                     <a href="dashboard">
+                     <a href="dashboard?request=system_users">
                      <i class="material-icons">people</i>
                      <span class="drawer-menu-text">
                         Manage System Users
@@ -104,14 +104,20 @@
                      </span>
                      </a>
                   </li>
-                  <li class="drawer-menu-item">
-                     <a href="data?training=123&action=approved">
-                     <i class="material-icons">check</i>
-                     <span class="drawer-menu-text">
-                        Approved Candidates
-                     </span>
+                <li class="drawer-menu-item drawer-submenu">
+                    <a data-toggle="collapse" data-parent="#mainMenu" href="#" data-target="#formsMenu" aria-controls="formsMenu" aria-expanded="false" class="collapsed">
+                        <i class="material-icons">people</i>
+                        <span class="drawer-menu-text">Candidates list</span>
                      </a>
-                  </li>
+                    <ul class="collapse " id="formsMenu">
+                        <li class="drawer-menu-item ">
+                           <a href="data?training=123&action=unapproved">No Show List</a>
+                        </li>
+                        <li class="drawer-menu-item ">
+                           <a href="data?training=123&action=approved">Checked IN List</a>
+                        </li>
+                    </ul>
+                </li>
                   <?php
                }
                ?>

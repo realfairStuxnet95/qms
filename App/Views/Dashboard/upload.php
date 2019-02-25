@@ -12,10 +12,11 @@ if($_FILES['files']['name'])
       $training_id='1234';
       $trainee_names=$function->sanitize($data[0]);
       $trainee_number=$function->sanitize($data[1]);
-      $train_date=$function->sanitize($data[2]);
-      $train_time=$function->sanitize($data[3]);
+      $reg_id=$function->sanitize($data[2]);
+      $train_date=$function->sanitize($data[3]);
+      $train_time=$function->sanitize($data[4]);
 
-      $insert_state=$upload->insertTrainee($training_id,$trainee_names,$trainee_number,$train_date,$train_time);
+      $insert_state=$upload->insertTrainee($training_id,$trainee_names,$trainee_number,$reg_id,$train_date,$train_time);
       if(!$insert_state){
         $errors=true;
       }
