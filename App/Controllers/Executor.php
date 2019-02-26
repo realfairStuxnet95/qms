@@ -97,7 +97,9 @@ class Execute extends Query{
 	public function querying($query){
 		return $this->select($query);
 	}
-
+	public function updating($query){
+		return $this->update($query);
+	}
 	public function rows_counting($query){
 		return $this->rows($querying);
 	}

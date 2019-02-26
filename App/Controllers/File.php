@@ -2,8 +2,8 @@
 
 class File extends Execute{
 
-	public function insertTrainee($training_id,$trainee_names,$trainee_number,$reg_id,$train_date,$train_time){
-		$array=array("training_id"=>$training_id,"trainee_names"=>$trainee_names,"trainee_number"=>$trainee_number,"reg_id"=>$reg_id,"train_date"=>$train_date,"train_time"=>$train_time,"status"=>'UNAPPROVED');
+	public function insertTrainee($training_id,$trainee_names,$lnames,$trainee_number,$reg_id,$train_date,$train_time){
+		$array=array("training_id"=>$training_id,"trainee_names"=>$trainee_names,"lnames"=>$lnames,"trainee_number"=>$trainee_number,"reg_id"=>$reg_id,"train_date"=>$train_date,"train_time"=>$train_time,"status"=>'UNAPPROVED');
 		return $this->multi_insert(Tables::file_upload(),$array);
 	}
 
@@ -14,6 +14,10 @@ class File extends Execute{
 	}
 	public function loadTimeslot(){
 		return $this->select_all_order_by(Tables::time_slot(),"name",true);
+	}
+	public function releaseComputers(){
+		$sql="UPDATE ".Tables::system_tables()." SET status='AVAILABLE'";
+		return $this->updating($sql);
 	}
 	public function loadSystemUsers(){
 		$query="SELECT * FROM ".Tables::users()." WHERE status!='DELETED' ORDER BY names DESC";
@@ -56,6 +60,10 @@ class File extends Execute{
 		$credentials=array("status"=>$status);
 		//return $this->select_all_order_by(Tables::time_slot(),"name",true);
 		return $this->select_multi_clause(Tables::system_tables(),$credentials);
+	}
+	public function getAllTables(){
+		$sql="SELECT * FROM ".Tables::system_tables()." ORDER BY name ASC";
+		return $this->querying($sql);
 	}
 	//get system tables
 	public function getTable($table_id){

@@ -11,6 +11,9 @@
           <button class="btn btn-success" data-toggle="modal" data-target="#saveTableModal">
             ADD NEW COMPUTER
           </button>
+          <button id="btnRelease" class="btn btn-danger">
+            RELEASE ALL COMPUTERS
+          </button>
         </div>
       </div>
     </div>
@@ -32,7 +35,7 @@
                     if(isset($_GET['action']) && $_GET['action']=='approved'){
                       $systemTables=$upload->getTables('AVAILABLE');
                     }else{
-                      $systemTables=$upload->getTables('AVAILABLE');
+                      $systemTables=$upload->getAllTables();
                     }
                     foreach ($systemTables as $key => $value) {
                        ?>
@@ -54,6 +57,12 @@
                                 }elseif($value['status']=='APPROVED'){
                                   ?>
                                   <span class="badge badge-success">
+                                    <?php echo $value['status']; ?>
+                                  </span>
+                                  <?php
+                                }elseif($value['status']=='TAKEN'){
+                                  ?>
+                                  <span class="badge badge-danger">
                                     <?php echo $value['status']; ?>
                                   </span>
                                   <?php

@@ -13,7 +13,7 @@
                   <form id="frm_save_table">
                     <div class="form-group">
                       <label for="email">Computer Number</label>
-                      <input type="number" class="form-control" id="Tablename" placeholder="Enter Number" name="name" required>
+                      <input type="text" class="form-control" id="Tablename" placeholder="Enter Number" name="name" required>
                     </div>
                     <div class="form-group" style="display: none;">
                       <label for="pwd">Table Capacity</label>

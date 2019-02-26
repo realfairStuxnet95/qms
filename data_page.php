@@ -76,8 +76,9 @@
                                         <thead>
                                             <tr>
                                               <th>System ID</th>
-                                                <th>Name</th>
+                                                <th>Names</th>
                                                 <th>Number</th>
+                                                <th>REGISTRATION ID</th>
                                                 <th>Date</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -99,10 +100,13 @@
                                                     <?php echo $value['file_id']; ?>
                                                   </td>
                                                    <td>
-                                                       <?php echo $value['trainee_names']; ?>
+                                                       <?php echo $value['trainee_names'].' '.$value['lnames']; ?>
                                                    </td>
                                                    <td>
                                                        <?php echo $value['trainee_number']; ?>
+                                                   </td>
+                                                   <td>
+                                                     <?php echo $value['reg_id']; ?>
                                                    </td>
                                                    <td>
                                                        <?php echo $value['train_date']; ?>

@@ -117,6 +117,13 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
+		}elseif($action=='release_pc'){
+			$release_status=$upload->releaseComputers();
+			if($release_status){
+				echo $success;
+			}else{
+				$error;
+			}
 		}
 	}	
 }else{

@@ -14,6 +14,12 @@ $(document).ready(function(){
 		var password=$("#password").val();
 		loginRequest(email,password);
 	});
+	$("#btnRelease").click(function(){
+		input[0]='release_pc';
+		if(confirm("Do you still want to release all these taken Computers")){
+			saveData(input,"tables?training=123");
+		}
+	});
 	//upload banner
 	$("#uploadFile").on("change",function(){
 		var file=document.getElementById("uploadFile").files[0];
