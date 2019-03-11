@@ -3,6 +3,10 @@
    require 'classes_loader.php';
    if(isset($_GET['training']) && $_GET['training']!=''){
         $training=$function->sanitize($_GET['training']);
+        $check_training=$upload->checkTraining($training);
+        if(!$check_training){
+          backHome();
+        }
    }else{
         backHome();
    }
@@ -29,7 +33,9 @@
       <?php 
          $router->loadView("Utils/stylesheet");
       ?>
-
+      <script type="text/javascript">
+        const station_id="<?php echo $_SESSION['station']; ?>";
+      </script>
 </head>
 
 <body>

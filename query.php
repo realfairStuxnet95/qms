@@ -9,18 +9,18 @@ if($con){
 		$currentTime=formatTime(substr($_POST['currentTime'],0,5));
 		// echo $currentTime;
 		// die();
-		$query=mysqli_query($con,"SELECT * FROM display_test WHERE start_time<=\"$currentTime\" AND end_time>=\"$currentTime\" AND status!='DELETED'");
+		$query=mysqli_query($con,"SELECT * FROM uploaded_file WHERE train_time<=\"$currentTime\"");
 		?>
 		<?php
 		if(mysqli_num_rows($query)>0){
 			while ($r=mysqli_fetch_assoc($query)) {
 				?>	
 				<span class="badge badge-success" style="background: #009966;padding:13px;margin: 10px;line-height: 10px;font-size: 2em;">
-					<?php echo 'Active Slot: '.$r['start_time'].' - '.$r['end_time'].'<br><br>'; ?>
+					<?php echo 'Active Slot: '.$currentTime; ?>
 				</span>			
 				<?php 
 					
-					getUser($r['id']);
+					getUser($currentTime);
 					break;
 				?>
 				<?php
@@ -47,7 +47,7 @@ function formatTime($time){
   }
   return $new_time;
 }
-function getUser($slotId){
+function getUser($currentTime){
 $server="localhost";
 $user="root";
 $pwd='';
@@ -55,7 +55,7 @@ $db='queue_store';
 require 'classes_loader.php';
 $con=mysqli_connect($server,$user,$pwd,$db);
 if($con){
-	$query=mysqli_query($con,"SELECT * FROM uploaded_file WHERE slot_id=\"$slotId\" AND status='APPROVED'");
+	$query=mysqli_query($con,"SELECT * FROM uploaded_file WHERE train_time<=\"$currentTime\" AND status='APPROVED'");
 	$num=mysqli_num_rows($query);
 
 	?>
@@ -99,7 +99,7 @@ if($con){
                                    </td>
                                    <td>
                                        <span class="badge badge-info">
-                                         <?php //echo $upload->getSlotTime((int)$value['slot_id']);?>
+                                         <?php echo $currentTime; ?>
                                        </span>
                                    </td>
                                    <td>

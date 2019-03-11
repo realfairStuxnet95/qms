@@ -1,5 +1,6 @@
 <?php 
 require $_SERVER['DOCUMENT_ROOT'].'/queue/classes_loader.php';
+require $_SERVER['DOCUMENT_ROOT'].'/queue/authorization.php';
 $success="200";
 $error="403";
 if(isset($_POST['input'])){
@@ -10,25 +11,20 @@ if(isset($_POST['input'])){
 		if($action=='approve_user'){
 			$number=$function->sanitize($input[1]);
 			$slot_id=$function->sanitize($input[2]);
-			// echo $slot_id;
-			// die();
-			if($slot_id!=''){
-				$free_table=$upload->getFreeTable();
-				// echo $free_table;
-				// die();
-				$state=$upload->approveTrainee($number,$slot_id,$free_table);
-				if($state){
-					echo $success;
-				}else{
-					echo $error;
-				}
+
+			$free_table=$upload->getFreeTable();
+			//echo $free_table;
+			//die();
+			$state=$upload->approveTrainee($number,$free_table);
+			if($state){
+				echo $success;
 			}else{
-				echo "Select slot please";
+				echo $error;
 			}
 		}elseif($action=='save_table'){
 			$tableName=$function->sanitize($input[1]);
 			$tableNumber=$function->sanitize($input[2]);
-			$state=$upload->saveTable($tableName,$tableNumber);
+			$state=$upload->saveTable($tableName,$tableNumber,$_SESSION['station']);
 			if($state){
 				echo $success;
 			}else{
@@ -123,6 +119,14 @@ if(isset($_POST['input'])){
 				echo $success;
 			}else{
 				$error;
+			}
+		}elseif($action=='add_station'){
+			$station_name=$function->sanitize($input[1]);
+			$save_status=$upload->saveStation($station_name);
+			if($save_status){
+				echo $success;
+			}else{
+				echo $error;
 			}
 		}
 	}	

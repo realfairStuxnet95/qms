@@ -17,8 +17,12 @@
       <?php 
          $router->loadView("Utils/stylesheet");
       ?>
+      <script type="text/javascript">
+        const station_id="<?php echo $_SESSION['station']; ?>";
+      </script>
    </head>
    <body>
+    <?php include 'App/Views/Dashboard/add_station.php'; ?>
       <div class="mdk-drawer-layout js-mdk-drawer-layout" data-fullbleed data-push data-responsive-width="992px" data-has-scrolling-region>
          <div class="mdk-drawer-layout__content">
             <!-- header-layout -->
@@ -33,7 +37,10 @@
                   $valid_request=array("display","home","upload_file","data?training=123");
                   if($request=='system_users'){
                     include 'App/Views/Dashboard/system_users.php';
-                  }elseif($request=='add_user'){
+                  }elseif($request=='training_station'){
+                    include 'App/Views/Dashboard/training_station.php';
+                  }
+                  elseif($request=='add_user'){
                     include 'App/Views/Dashboard/add_user.php';
                   }
                   elseif($request=='upload_file'){
@@ -47,7 +54,7 @@
                }else{
                   ?>
                   <script type="text/javascript">
-                    window.location="data?training=123";
+                    //window.location="data?training=123";
                   </script>
                   <?php
                }

@@ -33,9 +33,9 @@
                     <?php
                     $systemTables=array();
                     if(isset($_GET['action']) && $_GET['action']=='approved'){
-                      $systemTables=$upload->getTables('AVAILABLE');
+                      $systemTables=$upload->getTables('AVAILABLE',$_SESSION['station']);
                     }else{
-                      $systemTables=$upload->getAllTables();
+                      $systemTables=$upload->getAllTables($_SESSION['station']);
                     }
                     foreach ($systemTables as $key => $value) {
                        ?>

@@ -3,7 +3,11 @@
    require 'authorization.php';
    require 'classes_loader.php';
    if(isset($_GET['training']) && $_GET['training']!=''){
-        $training=$function->sanitize($_GET['training']);
+        $training=$_GET['training'];
+        $check_training=$upload->checkTraining($training);
+        if(!$check_training){
+          backHome();
+        }
    }else{
         backHome();
    }
@@ -30,7 +34,9 @@
       <?php 
          $router->loadView("Utils/stylesheet");
       ?>
-
+      <script type="text/javascript">
+        const station_id="<?php echo $_SESSION['station']; ?>";
+      </script>
 </head>
 
 <body>
@@ -89,9 +95,9 @@
                                             <?php
                                             $trainees=array();
                                             if(isset($_GET['action']) && $_GET['action']=='approved'){
-                                              $trainees=$upload->loadTrainees('APPROVED');
+                                              $trainees=$upload->loadTrainees('APPROVED',$_SESSION['station']);
                                             }else{
-                                              $trainees=$upload->loadTrainees('UNAPPROVED');
+                                              $trainees=$upload->loadTrainees('UNAPPROVED',$_SESSION['station']);
                                             }
                                             foreach ($trainees as $key => $value) {
                                                ?>
@@ -142,14 +148,16 @@
                                                               <?php
                                                           }elseif($value['status']=='APPROVED'){
                                                             ?>
-                                                            <a class="btn btn-success" style="color: #fff;" disabled>APPROVE</a>
+                                                            <a class="btn btn-success" style="color: #fff;" disabled>APPROVED</a>
                                                             <?php 
                                                           }
-                                                        }elseif($_SESSION['user_type']==1){
-                                                          ?>
-                                                          <a class="btn btn-success" style="color: #fff;" disabled>APPROVE</a>
-                                                          <?php
-                                                        }
+                                                        }if($value['status']=='UNAPPROVED'){
+                                                              ?>
+                                                              <a class="btn btn-success btn_approve" name="<?php echo $value['trainee_names']; ?>" number="<?php echo $value['trainee_number']; ?>"  style='color: #fff;'>
+                                                                  APPROVE
+                                                              </a>
+                                                              <?php
+                                                          }
                                                         ?>
                                                    </td>
                                                </tr>

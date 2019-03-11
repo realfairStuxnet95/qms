@@ -1,5 +1,6 @@
 <?php 
 require 'classes_loader.php';
+$trainingStation=$upload->loadStations();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,7 +29,7 @@ require 'classes_loader.php';
                     <h2 class="ml-2 text-bg mb-0"><strong style="display: block;">Queue Management</strong></h2>
                 </div>
                 <div class="row w-100 justify-content-center">
-                    <div class="card card-login mb-3">
+                    <div class="card card-login mb-3" style="min-width: 200px;">
                         <div class="card-body">
                             <form id="frmLogin">
                                 <div class="form-group">
@@ -39,6 +40,26 @@ require 'classes_loader.php';
                                             <i class="material-icons">account_circle</i>
                                         </div>
                                         <input id="username" type="text" class="form-control" name="username" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Select Training Station</label>
+
+                                    <div class="input-group input-group--inline">
+                                        <div class="input-group-addon">
+                                            <i class="material-icons">account_circle</i>
+                                        </div>
+                                        <select id="station" name="station" class="form-control">
+                                            <?php 
+                                            foreach ($trainingStation as $key => $value) {
+                                                ?>
+                                                <option value="<?php echo $value['training_id']; ?>">
+                                                    <?php echo $value['station']; ?>
+                                                </option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">

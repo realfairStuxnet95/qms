@@ -29,7 +29,7 @@
                   </a>
                </li>
                <li class="drawer-menu-item">
-                  <a href="tables?training=123&action=display#">
+                  <a href="tables?training=<?php echo $_SESSION['station']; ?>&action=display#">
                   <i class="material-icons">date_range</i>
                   <span class="drawer-menu-text">
                      Session Progress
@@ -46,10 +46,10 @@
                   </a>
                  <ul class="collapse " id="formsMenu">
                      <li class="drawer-menu-item ">
-                        <a href="data?training=123&action=unapproved">No Show List</a>
+                        <a href="data?training=<?php echo $_SESSION['station']; ?>&action=unapproved">No Show List</a>
                      </li>
                      <li class="drawer-menu-item ">
-                        <a href="data?training=123&action=approved">Checked IN List</a>
+                        <a href="data?training=<?php echo $_SESSION['station']; ?>&action=approved">Checked IN List</a>
                      </li>
                  </ul>
              </li>
@@ -73,6 +73,14 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
+                     <a href="dashboard?request=training_station">
+                     <i class="material-icons">fingerprint</i>
+                     <span class="drawer-menu-text">
+                        Manage Training Station
+                     </span>
+                     </a>
+                  </li>
+                  <li class="drawer-menu-item">
                      <a href="dashboard?request=upload_file">
                      <i class="material-icons">cloud_uploads</i>
                      <span class="drawer-menu-text">
@@ -81,7 +89,7 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
-                     <a href="data?training=123">
+                     <a href="data?training=<?php echo $_SESSION['station']; ?>">
                         <i class="material-icons">people</i>
                         <span class="drawer-menu-text">
                            Uploaded Candidates File
@@ -89,7 +97,7 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
-                     <a href="tables?training=123">
+                     <a href="tables?training=<?php echo $_SESSION['station']; ?>">
                      <i class="material-icons">view_arrays</i>
                      <span class="drawer-menu-text">
                         Manage Computers
@@ -97,7 +105,7 @@
                      </a>
                   </li>
                   <li class="drawer-menu-item">
-                     <a href="tables?training=123&action=time_slot">
+                     <a href="tables?training=<?php echo $_SESSION['station']; ?>&action=time_slot">
                      <i class="material-icons">access_time</i>
                      <span class="drawer-menu-text">
                         Manage Time Slot
@@ -111,10 +119,10 @@
                      </a>
                     <ul class="collapse " id="formsMenu">
                         <li class="drawer-menu-item ">
-                           <a href="data?training=123&action=unapproved">No Show List</a>
+                           <a href="data?training=<?php echo $_SESSION['station']; ?>&action=unapproved">No Show List</a>
                         </li>
                         <li class="drawer-menu-item ">
-                           <a href="data?training=123&action=approved">Checked IN List</a>
+                           <a href="data?training=<?php echo $_SESSION['station']; ?>&action=approved">Checked IN List</a>
                         </li>
                     </ul>
                 </li>

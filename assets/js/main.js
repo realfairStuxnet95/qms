@@ -12,12 +12,20 @@ $(document).ready(function(){
 		e.preventDefault();
 		var email=$("#username").val();
 		var password=$("#password").val();
-		loginRequest(email,password);
+		var station=$("#station").val();
+		loginRequest(email,password,station);
+	});
+	$("#frm_add_station").submit(function(e){
+		e.preventDefault();
+		var station_name=$("#station_name").val();
+		input[0]='add_station';
+		input[1]=station_name;
+		saveData(input,"dashboard?request=training_station");
 	});
 	$("#btnRelease").click(function(){
 		input[0]='release_pc';
 		if(confirm("Do you still want to release all these taken Computers")){
-			saveData(input,"tables?training=123");
+			saveData(input,"tables?training="+station_id);
 		}
 	});
 	//upload banner
@@ -44,7 +52,7 @@ $(document).ready(function(){
                 success: function(data)  
                 {  
                 	alert(data);
-                	window.location='data?training=123';
+                	window.location='data?training='+station_id;
                 }  
            }); 
 	});
@@ -68,7 +76,7 @@ $(document).ready(function(){
 		var names=$(this).attr("name");
 		var number=$(this).attr("number");
 		$("#modal123").modal();
-		$("#p_trainee").html("You are assigning Time slot to "+names+" with Id number: "+number);
+		$("#p_trainee").html("You are Approving Candidate "+names+" with Id number: "+number);
 		$("#trainee_info").val(number);
 	});
 	$("a.deleteUser").click(function(){
@@ -100,7 +108,7 @@ $(document).ready(function(){
 		input[0]="remove_table";
 		input[1]=table_id;
 		if(confirm("Are you Sure you want to Delete this Table With ID : "+table_id)){
-			saveData(input,"tables?training=123");
+			saveData(input,"tables?training="+station_id);
 		}
 	});
 	$("a.btnDesactivatePc").click(function(){
@@ -108,7 +116,7 @@ $(document).ready(function(){
 		input[0]="desactivate_pc";
 		input[1]=table_id;
 		if(confirm("Are you Sure you want to Desactivate this PC With ID : "+table_id)){
-			saveData(input,"tables?training=123");
+			saveData(input,"tables?training="+station_id);
 		}
 	});
 	$("a.slotDelete").click(function(){
@@ -116,7 +124,7 @@ $(document).ready(function(){
 		input[0]="delete_slot";
 		input[1]=slot_id;
 		if(confirm("Are you Sure you want to Delete this Time Slot With ID : "+slot_id)){
-			saveData(input,"tables?training=123&action=time_slot");
+			saveData(input,"tables?training="+station_id+"&action=time_slot");
 		}
 	});
 	$("#frm_save_user").submit(function(e){
@@ -150,7 +158,7 @@ $(document).ready(function(){
 		input[0]='approve_user';
 		input[1]=trainee_info;
 		input[2]=slot_time;
-		saveData(input,"data?training=123");
+		saveData(input,"data?training="+station_id);
 	});
 
 	$("#frm_save_table").submit(function(e){
@@ -161,7 +169,7 @@ $(document).ready(function(){
 		input[0]='save_table';
 		input[1]=Tablename;
 		input[2]=Tablenumber;
-		saveData(input,"tables?training=123");
+		saveData(input,"tables?training="+station_id);
 	});
 	$("#frm_save_slot").submit(function(e){
 		e.preventDefault();
@@ -170,7 +178,7 @@ $(document).ready(function(){
 		input[0]='save_slot';
 		input[1]=startTime;
 		input[2]=endTime;
-		saveData(input,"tables?training=123&action=time_slot");
+		saveData(input,"tables?training="+station_id+"&action=time_slot");
 	});
 
 });
@@ -211,12 +219,13 @@ function saveData(input,redirectUrl){
 		}
 	});
 }
-function loginRequest(email,password){
+function loginRequest(email,password,station){
 	showLoader();
 	var url="log_user";
 	$.post(url,{
 		email:email,
-		password:password
+		password:password,
+		station:station
 	},function(response){
 		hideLoader();
 		if(response.match("200")){

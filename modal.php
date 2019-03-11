@@ -4,7 +4,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">Assign Training time slot to Trainee</h4>
+            <h4 class="modal-title">Approving Training Candidates</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -14,7 +14,7 @@
                   <?php 
                   $time_slot=$upload->getTimeSlot('ACTIVE');
                   ?>
-                    <select id="sel_slot" class="form-control form-control-lg">
+                    <select id="sel_slot" value='1' style="display: none;" class="form-control form-control-lg">
                             <option value="">Select Time Slot</option>
                             <?php 
                             foreach ($time_slot as $key => $value) {

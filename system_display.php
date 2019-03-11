@@ -21,4 +21,10 @@
 <script src="index.js"></script>
 
 </body>
+<script type="text/javascript">
+	$(document).ready(function(){
+    var $el = $(".table-responsive");
+    $el.hide();
+  });
+</script>
 </html>

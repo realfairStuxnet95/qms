@@ -1,5 +1,6 @@
  <?php
 require $_SERVER['DOCUMENT_ROOT'].'/queue/classes_loader.php';
+require $_SERVER['DOCUMENT_ROOT'].'/queue/authorization.php';
 $errors=false;
 if($_FILES['files']['name'])
 {
@@ -9,7 +10,7 @@ if($_FILES['files']['name'])
     $handle = fopen($_FILES['files']['tmp_name'], "r");
    while($data = fgetcsv($handle))
    {
-      $training_id='1234';
+      $training_id=$_SESSION['station'];
       $trainee_names=$function->sanitize($data[0]);
       $lnames=$function->sanitize($data[1]);
       $trainee_number=$function->sanitize($data[2]);

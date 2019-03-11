@@ -4,11 +4,11 @@ class Tables {
 	public function users(){
 		return 'system_users';
 	}
-	public function training(){
-		return '';
-	}
 	public function file_upload(){
 		return 'uploaded_file';
+	}
+	public function training(){
+		return 'training';
 	}
 	public function time_slot(){
 		return 'display_test';

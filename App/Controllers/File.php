@@ -7,8 +7,8 @@ class File extends Execute{
 		return $this->multi_insert(Tables::file_upload(),$array);
 	}
 
-	public function loadTrainees($status){
-		$credentials=array("status"=>$status);
+	public function loadTrainees($status,$station_id){
+		$credentials=array("status"=>$status,"training_id"=>$station_id);
 		//return $this->select_all_order_by(Tables::time_slot(),"name",true);
 		return $this->select_multi_clause(Tables::file_upload(),$credentials);
 	}
@@ -22,6 +22,23 @@ class File extends Execute{
 	public function loadSystemUsers(){
 		$query="SELECT * FROM ".Tables::users()." WHERE status!='DELETED' ORDER BY names DESC";
 		return $this->querying($query);
+	}
+	public function loadStations(){
+		$query="SELECT * FROM training";
+		return $this->querying($query);
+	}
+	public function saveStation($station_name){
+		$array=array("station"=>$station_name,"status"=>'ACTIVE');
+		return $this->multi_insert(Tables::training(),$array);
+	}
+	public function checkTraining($station_id){
+		$credentials=array("training_id"=>$station_id);
+		$resultSet=$this->select_multi_clause(Tables::training(),$credentials);
+		if(count($resultSet)>0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	public function getActiveSlot($currentTime){
 		$sql="SELECT * FROM `time_slot` WHERE time_range<=\"$currentTime\" AND end_time>=\"$currentTime\"";
@@ -56,13 +73,13 @@ class File extends Execute{
 	}
 
 	//get system tables
-	public function getTables($status){
-		$credentials=array("status"=>$status);
+	public function getTables($status,$station_id){
+		$credentials=array("status"=>$status,"training_id"=>$station_id);
 		//return $this->select_all_order_by(Tables::time_slot(),"name",true);
 		return $this->select_multi_clause(Tables::system_tables(),$credentials);
 	}
-	public function getAllTables(){
-		$sql="SELECT * FROM ".Tables::system_tables()." ORDER BY name ASC";
+	public function getAllTables($station_id){
+		$sql="SELECT * FROM ".Tables::system_tables()." WHERE training_id=\"$station_id\" ORDER BY name ASC";
 		return $this->querying($sql);
 	}
 	//get system tables
@@ -80,8 +97,8 @@ class File extends Execute{
 		}
 		return $table_number;
 	}
-	public function saveTable($name,$capacity){
-		$array=array("name"=>$name,"capacity"=>$capacity,"status"=>'AVAILABLE');
+	public function saveTable($name,$capacity,$station_id){
+		$array=array("name"=>$name,"capacity"=>$capacity,"status"=>'AVAILABLE',"training_id"=>$station_id);
 		return $this->multi_insert(Tables::system_tables(),$array);
 	}
 	public function removeTable($tableId){
