@@ -24,7 +24,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Sub</title>
+    <title> Uploaded Candidates |Queue Management System</title>
 
 
     <link type="text/css" href="assets/css/vendor-bootstrap-datatables.css" rel="stylesheet">
@@ -69,7 +69,7 @@
                                   </h4>
                                 </div>
                                 <div class="col-lg-9">
-                                  <a id="btnStartTraining" class="btn btn-success" href="output" target="_blank">
+                                  <a id="btnStartTraining" class="btn btn-success" href="display" target="_blank">
                                     DISPLAY QUEUE
                                   </a>
                                 </div>
@@ -93,11 +93,12 @@
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $compare_date=date("Y-m-d");
                                             $trainees=array();
                                             if(isset($_GET['action']) && $_GET['action']=='approved'){
-                                              $trainees=$upload->loadTrainees('APPROVED',$_SESSION['station']);
+                                              $trainees=$upload->systemDisplay("APPROVED",$compare_date);
                                             }else{
-                                              $trainees=$upload->loadTrainees('UNAPPROVED',$_SESSION['station']);
+                                              $trainees=$upload->systemDisplay('UNAPPROVED',$compare_date);
                                             }
                                             foreach ($trainees as $key => $value) {
                                                ?>

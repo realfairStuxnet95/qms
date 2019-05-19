@@ -28,6 +28,18 @@ $(document).ready(function(){
 			saveData(input,"tables?training="+station_id);
 		}
 	});
+	$("a.btn_pc_edit").click(function(){
+		var table_id=$(this).attr("table_id");
+		var computer_name=$(this).attr("computer_name");
+		var computer = prompt("Computer name", computer_name);
+
+		if (computer != null) {
+			input[0]="edit_computer";
+			input[1]=table_id;
+			input[2]=computer;
+			saveData(input,"tables?training="+station_id);
+		}
+	});
 	//upload banner
 	$("#uploadFile").on("change",function(){
 		var file=document.getElementById("uploadFile").files[0];

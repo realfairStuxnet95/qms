@@ -79,7 +79,7 @@ class File extends Execute{
 		return $this->select_multi_clause(Tables::system_tables(),$credentials);
 	}
 	public function getAllTables($station_id){
-		$sql="SELECT * FROM ".Tables::system_tables()." WHERE training_id=\"$station_id\" ORDER BY name ASC";
+		$sql="SELECT * FROM ".Tables::system_tables()." WHERE status!='DELETED' AND training_id=\"$station_id\"  ORDER BY name ASC";
 		return $this->querying($sql);
 	}
 	//get system tables
@@ -104,6 +104,11 @@ class File extends Execute{
 	public function removeTable($tableId){
 		$data=array("status"=>'DELETED');
 		$where=array("table_id"=>$tableId);
+		return $this->query_update(Tables::system_tables(),$where,$data);
+	}
+	public function updateComputer($computerId,$new_name){
+		$data=array("name"=>$new_name);
+		$where=array("table_id"=>$computerId);
 		return $this->query_update(Tables::system_tables(),$where,$data);
 	}
 	public function removeUser($userId){
@@ -215,7 +220,15 @@ class File extends Execute{
 		}
 	}
 
-	//MANAGE SYSTEM user
+	//MANAGE SYSTEM DISPAY
+	public function systemDisplay($status,$compare_date){
+		$sql="SELECT * FROM uploaded_file WHERE status=\"$status\" and savedDate LIKE \"%$compare_date%\"";
+		return $this->querying($sql);
+	}
+	public function SystemOutput($compare_date){
+		$sql="SELECT * FROM uploaded_file WHERE status='APPROVED' and savedDate LIKE \"%$compare_date%\"";
+		return $this->querying($sql);
+	}
 }
 $upload=new File();
 ?>

@@ -13,5 +13,7 @@ require 'classes_loader.php';
 // $value=array_diff($array, $array1);
 // arra
 // var_dump($value);
-echo date("d/m/Y");
+$compare_date=date("Y-m-d");
+$checkIn=$upload->systemDisplay("UNAPPROVED",$compare_date);
+var_dump($checkIn);
 ?>

@@ -23,7 +23,7 @@
             <table id="data-table" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Table ID</th>
+                        <th>Computer ID</th>
                         <th>Number</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -71,9 +71,9 @@
                            </td>
                            <td>
                             <div class="btn-group">
-                              <button type="button" class="btn btn-primary">
+                              <a table_id="<?php echo $value['table_id']; ?>" computer_name="<?php echo $value['name']; ?>" href="#" class="btn btn-primary btn_pc_edit">
                                 <i class="fa fa-edit"></i>
-                              </button>
+                              </a>
                               <?php 
                               if($value['status']=='AVAILABLE'){
                                 ?>

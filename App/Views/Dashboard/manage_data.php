@@ -128,6 +128,15 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
+		}elseif($action=='edit_computer'){
+			$computer_id=$function->sanitize($input[1]);
+			$new_name=$function->sanitize($input[2]);
+			$update_status=$upload->updateComputer($computer_id,$new_name);
+			if($update_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
 		}
 	}	
 }else{

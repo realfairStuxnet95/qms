@@ -4,7 +4,9 @@
          <nav class="drawer  drawer--dark">
             <div class="drawer-spacer">
                <div class="media align-items-center">
-                  <a href="dashboard" class="drawer-brand-circle mr-2">S</a>
+                  <a href="dashboard">
+                     <img src="assets/images/police.png" style="width: 100px;">
+                  </a>
                   <div class="media-body">
                      <a href="dashboard" class="h5 m-0 text-link">QMS System</a>
                   </div>
