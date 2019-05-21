@@ -45,8 +45,6 @@
                   }
                   elseif($request=='upload_file'){
                      $router->loadView("Dashboard/".$request);
-                  }elseif($request=='display'){
-                     include 'display.php';
                   }
                   else{
 

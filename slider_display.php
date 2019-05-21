@@ -53,6 +53,24 @@ $Candidates=$upload->SystemOutput($compare_date);
             <tbody>
               <?php 
               for ($j=$i;$j<$temp;$j++) { 
+                $verified=$Candidates[$j]['verified'];
+                if($verified=='YES'){
+                 ?>
+                  <tr style="background: #FF3D55;color: #fff;">
+                    <td>
+                      <?php echo $Candidates[$j]['trainee_names']; ?>
+                    </td>
+                    <td>
+                      <span class="label label-success">
+                        <?php echo $upload->getTable($Candidates[$j]['table_id']); ?>
+                      </span>
+                    </td>
+                    <td>
+                      <?php echo $Candidates[$j]['trainee_number']; ?>
+                    </td>
+                  </tr>
+                 <?php
+               }else{
                  ?>
                   <tr>
                     <td>
@@ -68,6 +86,7 @@ $Candidates=$upload->SystemOutput($compare_date);
                     </td>
                   </tr>
                  <?php
+               }
               }
               ?>
             </tbody>
@@ -87,6 +106,24 @@ $Candidates=$upload->SystemOutput($compare_date);
             <tbody>
               <?php 
               for ($j=$i;$j<$temp;$j++) { 
+                $verified=$Candidates[$j]['verified'];
+                if($verified=='YES'){
+                 ?>
+                  <tr style="background: #FF3D55;color: #fff;">
+                    <td>
+                      <?php echo $Candidates[$j]['trainee_names']; ?>
+                    </td>
+                    <td>
+                      <span class="label label-success">
+                        <?php echo $upload->getTable($Candidates[$j]['table_id']); ?>
+                      </span>
+                    </td>
+                    <td>
+                      <?php echo $Candidates[$j]['trainee_number']; ?>
+                    </td>
+                  </tr>
+                 <?php
+               }else{
                  ?>
                   <tr>
                     <td>
@@ -102,6 +139,7 @@ $Candidates=$upload->SystemOutput($compare_date);
                     </td>
                   </tr>
                  <?php
+               }
               }
               ?>
             </tbody>

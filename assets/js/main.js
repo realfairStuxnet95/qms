@@ -40,6 +40,14 @@ $(document).ready(function(){
 			saveData(input,"tables?training="+station_id);
 		}
 	});
+	$("a.btn_verify").click(function(){
+		var candidate_id=$(this).attr("candidate_id");
+		if(confirm("Are you Sure you want to Verify this user with NID: "+candidate_id)){
+			input[0]="verify_candidate";
+			input[1]=candidate_id;
+			saveData(input,"data?training=1&action=approved");
+		}
+	});
 	//upload banner
 	$("#uploadFile").on("change",function(){
 		var file=document.getElementById("uploadFile").files[0];

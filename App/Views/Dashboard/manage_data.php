@@ -137,6 +137,14 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
+		}elseif($action=='verify_candidate'){
+			$candidate_id=$function->sanitize($input[1]);
+			$verify_status=$upload->verifyCandidate($candidate_id);
+			if($verify_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
 		}
 	}	
 }else{

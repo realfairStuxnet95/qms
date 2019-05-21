@@ -56,7 +56,18 @@
                  </ul>
              </li>
                   <?php
-               }elseif($userType==1){
+               }elseif($userType==3){
+                  ?>
+                  <li class="drawer-menu-item">
+                     <a href="data?training=1&action=approved">
+                        <i class="material-icons">check_box</i>
+                        <span class="drawer-menu-text">
+                           Approved Candidates
+                     </a>
+                  </li>
+                  <?php
+               }
+               elseif($userType==1){
                   ?>
                   <li class="drawer-menu-item active ">
                      <a href="dashboard">

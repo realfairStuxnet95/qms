@@ -85,9 +85,9 @@
                                                 <th>Names</th>
                                                 <th>Number</th>
                                                 <th>REGISTRATION ID</th>
-                                                <th>Date</th>
-                                                <th>Time</th>
+                                                <th>Da/Time</th>
                                                 <th>Status</th>
+                                                <th>Verified</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -119,9 +119,6 @@
                                                        <?php echo $value['train_date']; ?>
                                                    </td>
                                                    <td>
-                                                       <?php echo $value['train_time']; ?>
-                                                   </td>
-                                                   <td>
                                                        <?php
                                                         if($value['status']=='UNAPPROVED'){
                                                           ?>
@@ -137,6 +134,23 @@
                                                           <?php
                                                         }
                                                        ?>
+                                                   </td>
+                                                   <td>
+                                                     <?php 
+                                                     if($value['verified']=='YES'){
+                                                      ?>
+                                                      <span class="badge badge-success">
+                                                        YES
+                                                      </span>
+                                                      <?php
+                                                     }else{
+                                                      ?>
+                                                      <span class="badge badge-danger">
+                                                        NO
+                                                      </span>
+                                                      <?php
+                                                     }
+                                                     ?>
                                                    </td>
                                                    <td>
                                                         <?php 
@@ -159,6 +173,15 @@
                                                               </a>
                                                               <?php
                                                           }
+                                                        ?>
+                                                        <?php 
+                                                        if($_SESSION['user_type']==3 && $value['status']=='APPROVED' && $value['verified']!='YES'){
+                                                          ?>
+                                                          <a candidate_id="<?php echo $value['trainee_number']; ?>" href="#" class="btn btn-danger btn_verify">
+                                                            VERIFY
+                                                          </a>
+                                                          <?php
+                                                        }
                                                         ?>
                                                    </td>
                                                </tr>

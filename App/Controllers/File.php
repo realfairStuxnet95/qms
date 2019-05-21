@@ -111,6 +111,11 @@ class File extends Execute{
 		$where=array("table_id"=>$computerId);
 		return $this->query_update(Tables::system_tables(),$where,$data);
 	}
+	public function verifyCandidate($candidate_id){
+		$data=array("verified"=>'YES');
+		$where=array("trainee_number"=>$candidate_id);
+		return $this->query_update(Tables::file_upload(),$where,$data);
+	}
 	public function removeUser($userId){
 		$data=array("status"=>'DELETED');
 		$where=array("user_id"=>$userId);
