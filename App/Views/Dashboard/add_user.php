@@ -27,6 +27,7 @@
 	       	 <select id="select_type" class="form-control" required="">
 	       	 	<option value="1">SYSTEM ADMIN</option>
 	       	 	<option value="2">RECEPTIONIST</option>
+	       	 	<option value="3">Verify Officer</option>
 	       	 </select>
 	      </div>
 	    </div>
