@@ -117,7 +117,7 @@
                      </span>
                      </a>
                   </li>
-                  <li class="drawer-menu-item">
+                  <li class="drawer-menu-item" style="display: none;">
                      <a href="tables?training=<?php echo $_SESSION['station']; ?>&action=time_slot">
                      <i class="material-icons">access_time</i>
                      <span class="drawer-menu-text">
