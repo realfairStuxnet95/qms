@@ -59,7 +59,7 @@
                }elseif($userType==3){
                   ?>
                   <li class="drawer-menu-item">
-                     <a href="data?training=1&action=approved">
+                     <a href="dashboard?request=verified_candidates">
                         <i class="material-icons">check_box</i>
                         <span class="drawer-menu-text">
                            Approved Candidates

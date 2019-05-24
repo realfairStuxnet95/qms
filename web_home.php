@@ -43,6 +43,9 @@
                   elseif($request=='add_user'){
                     include 'App/Views/Dashboard/add_user.php';
                   }
+                  elseif($request=='verified_candidates'){
+                    include 'App/Views/Dashboard/verify_officer.php';
+                  }
                   elseif($request=='upload_file'){
                      $router->loadView("Dashboard/".$request);
                   }

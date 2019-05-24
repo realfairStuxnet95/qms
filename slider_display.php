@@ -56,7 +56,7 @@ $Candidates=$upload->SystemOutput($compare_date);
                 $verified=$Candidates[$j]['verified'];
                 if($verified=='YES'){
                  ?>
-                  <tr style="background: #FF3D55;color: #fff;">
+                  <tr style="background: #009966;color: #fff;">
                     <td>
                       <?php echo $Candidates[$j]['trainee_names']; ?>
                     </td>
@@ -109,7 +109,7 @@ $Candidates=$upload->SystemOutput($compare_date);
                 $verified=$Candidates[$j]['verified'];
                 if($verified=='YES'){
                  ?>
-                  <tr style="background: #FF3D55;color: #fff;">
+                  <tr style="background: #009966;color: #fff;">
                     <td>
                       <?php echo $Candidates[$j]['trainee_names']; ?>
                     </td>

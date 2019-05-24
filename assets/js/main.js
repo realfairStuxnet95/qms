@@ -45,7 +45,7 @@ $(document).ready(function(){
 		if(confirm("Are you Sure you want to Verify this user with NID: "+candidate_id)){
 			input[0]="verify_candidate";
 			input[1]=candidate_id;
-			saveData(input,"data?training=1&action=approved");
+			saveData(input,"dashboard?request=verified_candidates");
 		}
 	});
 	//upload banner
