@@ -164,7 +164,8 @@ class File extends Execute{
 	}
 
 	public function validateNID($nid){
-		$query="SELECT * FROM uploaded_file WHERE trainee_number=\"$nid\"";
+		$compare_date=date("Y-m-d");
+		$query="SELECT * FROM uploaded_file WHERE trainee_number=\"$nid\" AND savedDate LIKE \"%$compare_date%\"";
 		$resultSet=$this->querying($query);
 		return $resultSet;
 	}

@@ -13,6 +13,11 @@
         </div>
       </div>
     <div class="table-responsive">
+      <center style="margin: 10px;">
+        <a id="btnStartTraining" class="btn btn-success" href="display" target="_blank">
+          DISPLAY QUEUE
+        </a>
+      </center>
         <table id="data_table" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
