@@ -144,6 +144,22 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
+		}elseif($action=='avails_computer'){
+			$computer_id=$function->sanitize($input[1]);
+			$release_status=$upload->releaseOneComputer($computer_id,'AVAILABLE');
+			if($release_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=='take_computer'){
+			$computer_id=$function->sanitize($input[1]);
+			$release_status=$upload->releaseOneComputer($computer_id,'TAKEN');
+			if($release_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
 		}
 	}	
 }else{

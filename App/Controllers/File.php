@@ -19,6 +19,10 @@ class File extends Execute{
 		$sql="UPDATE ".Tables::system_tables()." SET status='AVAILABLE'";
 		return $this->updating($sql);
 	}
+	public function releaseOneComputer($computer_id,$status){
+		$sql="UPDATE ".Tables::system_tables()." SET status=\"$status\" WHERE table_id=\"$computer_id\" LIMIT 1";
+		return $this->updating($sql);
+	}
 	public function loadSystemUsers(){
 		$query="SELECT * FROM ".Tables::users()." WHERE status!='DELETED' ORDER BY names DESC";
 		return $this->querying($query);

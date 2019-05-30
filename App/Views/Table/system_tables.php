@@ -20,7 +20,7 @@
     <!-- Modal -->
     <div class="py-4">
         <div class="table-responsive">
-            <table id="data-table" class="table table-striped table-bordered" style="width:100%">
+            <table  class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>Computer ID</th>
@@ -77,14 +77,14 @@
                               <?php 
                               if($value['status']=='AVAILABLE'){
                                 ?>
-                                <a table_id="<?php echo $value['table_id']; ?>" class="btn btn-warning btnDesactivatePc" data-toggle="tooltip" title="Desactivate Computer!" style='color: #fff;'>
-                                  <i class="fa fa-eye-slash"></i>
+                                <a table_id="<?php echo $value['table_id']; ?>" class="btn btn-warning btn_taken" data-toggle="tooltip" title="Make computer as Taken" style='color: #fff;'>
+                                  HAS TAKEN
                                 </a>
                                 <?php
                               }elseif($value['status']=='TAKEN'){
                                 ?>
-                                <a table_id="<?php echo $value['table_id']; ?>" class="btn btn-success" data-toggle="tooltip" title="Desactivate Computer!" style='color: #fff;'>
-                                  <i class="fa fa-eye"></i>
+                                <a table_id="<?php echo $value['table_id']; ?>" class="btn btn-success btn_available" data-toggle="tooltip" title="Make computer available!" style='color: #fff;'>
+                                  AVAIL IT
                                 </a>
                                 <?php
                               }

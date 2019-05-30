@@ -48,6 +48,22 @@ $(document).ready(function(){
 			saveData(input,"dashboard?request=verified_candidates");
 		}
 	});
+	$("a.btn_available").click(function(){
+		var computer_id=$(this).attr("table_id");
+		if(confirm("Do you want to Avails this Computer")){
+			input[0]='avails_computer';
+			input[1]=computer_id;
+			saveData(input,"tables?training=1");
+		}
+	});
+	$("a.btn_taken").click(function(){
+		var computer_id=$(this).attr("table_id");
+		if(confirm("Do you want to Make this Computer as Taken")){
+			input[0]='take_computer';
+			input[1]=computer_id;
+			saveData(input,"tables?training=1");
+		}
+	});
 	//upload banner
 	$("#uploadFile").on("change",function(){
 		var file=document.getElementById("uploadFile").files[0];
