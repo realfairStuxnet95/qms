@@ -1,8 +1,14 @@
 <?php 
 error_reporting(0);
 require 'classes_loader.php';
- $compare_date=date("Y-m-d");
-$Candidates=$upload->SystemOutput($compare_date);
+$start_time='';
+$end_time='';
+if((isset($_GET['start_time']) && $_GET['start_time']!='') && (isset($_GET['end_time']) && $_GET['end_time']!='')){
+  $start_time=$_GET['start_time'];
+  $end_time=$_GET['end_time'];
+}
+$compare_date=date("Y-m-d");
+$Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time);
 //var_dump($Candidates);
 ?>
 <!DOCTYPE html>
@@ -11,13 +17,17 @@ $Candidates=$upload->SystemOutput($compare_date);
   <title>Approved Candidates ||Queue Management System</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
 <div class="container">
+  <?php include 'App/Views/Display/approve_form.php'; ?>
   <h2 style="margin:10px;background: #009966;color: #FFF;">
     <?php echo $compare_date." Total Candidates: ".count($Candidates); ?>
     <span id="divTime" class="pull right">

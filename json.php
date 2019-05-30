@@ -11,7 +11,8 @@ if($con){
 		$response=$upload->validateNID($nid);
 		if(count($response)>0){
 			$pc_id=$upload->getFreeTable();
-			$approve=$upload->approveTrainee($nid,$pc_id);
+			$approved_time=$function->getCurrentTime();
+			$approve=$upload->approveTrainee($nid,$pc_id,$approved_time);
 			if($approve){
 				$response=$upload->validateNID($nid);
 				$response_array=array();

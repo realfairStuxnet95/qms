@@ -111,14 +111,18 @@ public function formatDate($datetime, $full = false) {
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
-public function string_date_format($number_date){
-    $date = new DateTime($number_date);
-    $result = (int)$date->format('m');
-    $day=$date->format('d');
-    $year=$date->format('Y');
-    $monthName = strftime('%B', mktime(0, 0, 0, $result));
-    return $monthName.' '.$day.', '.$year;
-}
+    public function string_date_format($number_date){
+        $date = new DateTime($number_date);
+        $result = (int)$date->format('m');
+        $day=$date->format('d');
+        $year=$date->format('Y');
+        $monthName = strftime('%B', mktime(0, 0, 0, $result));
+        return $monthName.' '.$day.', '.$year;
+    }
+    public function getCurrentTime(){
+        date_default_timezone_set("Africa/Kigali");
+        return date("h:i");
+    }
 }
 $function=new Validate();
 ?>

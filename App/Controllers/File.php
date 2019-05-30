@@ -59,9 +59,9 @@ class File extends Execute{
         $start_date = date('H:i:s',$timed);
         return $start_date;
     }
-	public function approveTrainee($number,$table_id){
+	public function approveTrainee($number,$table_id,$approved_time){
 		$where=array("trainee_number"=>$number);
-		$array=array("table_id"=>$table_id,"status"=>'APPROVED','train_date'=>date("d/m/Y"));
+		$array=array("table_id"=>$table_id,"status"=>'APPROVED','train_date'=>date("d/m/Y"),"approved_time"=>$approved_time);
 		$new_slot=array("table_id"=>$table_id);
 		$new_value=array("status"=>'TAKEN');
 		$new_status=$this->query_update(Tables::system_tables(),$new_slot,$new_value);
@@ -230,8 +230,14 @@ class File extends Execute{
 		$sql="SELECT * FROM uploaded_file WHERE status=\"$status\" and savedDate LIKE \"%$compare_date%\"";
 		return $this->querying($sql);
 	}
-	public function SystemOutput($compare_date){
-		$sql="SELECT * FROM uploaded_file WHERE status='APPROVED' and savedDate LIKE \"%$compare_date%\"";
+	public function SystemOutput($compare_date,$start_time,$end_time){
+		$sql='';
+		if($start_time!='' && $end_time!=''){
+			$sql="SELECT * FROM uploaded_file WHERE status='APPROVED' AND (approved_time BETWEEN \"$start_time\" AND \"$end_time\") AND savedDate LIKE \"%$compare_date%\"";
+		}else{
+			$sql="SELECT * FROM uploaded_file WHERE status='APPROVED' and savedDate LIKE \"%$compare_date%\"";
+		}
+		
 		return $this->querying($sql);
 	}
 }
