@@ -1,7 +1,7 @@
 <?php 
 $server="localhost";
 $user="root";
-$pwd='';
+$pwd='Police@123!@';
 $db='queue_store';
 require $_SERVER['DOCUMENT_ROOT'].'/queue/classes_loader.php';
 $con=mysqli_connect($server,$user,$pwd,$db);

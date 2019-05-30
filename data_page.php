@@ -78,14 +78,14 @@
                             <!-- Modal -->
                             <div class="py-4">
                                 <div class="table-responsive">
-                                    <table id="data-table" class="table table-striped table-bordered" style="width:100%">
+                                    <table  class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
                                               <th>System ID</th>
                                                 <th>Names</th>
                                                 <th>Number</th>
                                                 <th>REGISTRATION ID</th>
-                                                <th>Da/Time</th>
+                                                <th>Date/Time</th>
                                                 <th>Status</th>
                                                 <th>Verified</th>
                                                 <th>Action</th>

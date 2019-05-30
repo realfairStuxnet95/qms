@@ -13,7 +13,7 @@
         </div>
       </div>
     <div class="table-responsive">
-        <table  class="table table-striped table-bordered" style="width:100%">
+        <table id="data_table" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                   <th>System ID</th>
@@ -35,7 +35,7 @@
                 }else{
                   $trainees=$upload->systemDisplay('UNAPPROVED',$compare_date);
                 }
-                $trainees=$upload->systemDisplay('APPROVED',$compare_date);
+                $trainees=$upload->needToVerify($compare_date);
                 foreach ($trainees as $key => $value) {
                    ?>
                    <tr>

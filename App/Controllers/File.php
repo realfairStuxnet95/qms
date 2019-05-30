@@ -230,6 +230,10 @@ class File extends Execute{
 		$sql="SELECT * FROM uploaded_file WHERE status=\"$status\" and savedDate LIKE \"%$compare_date%\"";
 		return $this->querying($sql);
 	}
+	public function needToVerify($compare_date){
+		$sql="SELECT * FROM uploaded_file WHERE verified!='YES' AND status='APPROVED' and savedDate LIKE \"%$compare_date%\" ORDER BY file_id DESC";
+		return $this->querying($sql);
+	}
 	public function SystemOutput($compare_date,$start_time,$end_time){
 		$sql='';
 		if($start_time!='' && $end_time!=''){

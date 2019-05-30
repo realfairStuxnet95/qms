@@ -65,6 +65,13 @@
                            Approved Candidates
                      </a>
                   </li>
+                  <li class="drawer-menu-item">
+                     <a href="dashboard?request=in_exam">
+                        <i class="material-icons">check</i>
+                        <span class="drawer-menu-text">
+                           Verified Candidates
+                     </a>
+                  </li>
                   <?php
                }
                elseif($userType==1){

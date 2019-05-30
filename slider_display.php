@@ -68,7 +68,7 @@ $Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time);
                  ?>
                   <tr style="background: #009966;color: #fff;">
                     <td>
-                      <?php echo $Candidates[$j]['trainee_names']; ?>
+                      <?php echo $Candidates[$j]['trainee_names'].' '.$Candidates[$j]['lnames']; ?>
                     </td>
                     <td>
                       <span class="label label-success">
@@ -84,7 +84,7 @@ $Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time);
                  ?>
                   <tr>
                     <td>
-                      <?php echo $Candidates[$j]['trainee_names']; ?>
+                      <?php echo $Candidates[$j]['trainee_names'].' '.$Candidates[$j]['lnames']; ?>
                     </td>
                     <td>
                       <span class="label label-success">
@@ -121,7 +121,7 @@ $Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time);
                  ?>
                   <tr style="background: #009966;color: #fff;">
                     <td>
-                      <?php echo $Candidates[$j]['trainee_names']; ?>
+                      <?php echo $Candidates[$j]['trainee_names'].' '.$Candidates[$j]['lnames']; ?>
                     </td>
                     <td>
                       <span class="label label-success">
@@ -137,7 +137,7 @@ $Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time);
                  ?>
                   <tr>
                     <td>
-                      <?php echo $Candidates[$j]['trainee_names']; ?>
+                      <?php echo $Candidates[$j]['trainee_names'].' '.$Candidates[$j]['lnames']; ?>
                     </td>
                     <td>
                       <span class="label label-success">

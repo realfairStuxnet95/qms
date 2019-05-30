@@ -45,6 +45,8 @@
                   }
                   elseif($request=='verified_candidates'){
                     include 'App/Views/Dashboard/verify_officer.php';
+                  }elseif($request=='in_exam'){
+                    include 'App/Views/Dashboard/in_exam.php';
                   }
                   elseif($request=='upload_file'){
                      $router->loadView("Dashboard/".$request);

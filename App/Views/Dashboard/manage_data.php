@@ -3,6 +3,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/queue/classes_loader.php';
 require $_SERVER['DOCUMENT_ROOT'].'/queue/authorization.php';
 $success="200";
 $error="403";
+$approved_time=$function->getCurrentTime();
 if(isset($_POST['input'])){
 	if(is_array($_POST['input'])){
 		$input=$_POST['input'];
@@ -11,11 +12,9 @@ if(isset($_POST['input'])){
 		if($action=='approve_user'){
 			$number=$function->sanitize($input[1]);
 			$slot_id=$function->sanitize($input[2]);
-
+			$approved_time=$function->getCurrentTime();
 			$free_table=$upload->getFreeTable();
-			//echo $free_table;
-			//die();
-			$state=$upload->approveTrainee($number,$free_table);
+			$state=$upload->approveTrainee($number,$free_table,$approved_time);
 			if($state){
 				echo $success;
 			}else{
@@ -138,8 +137,8 @@ if(isset($_POST['input'])){
 				echo $error;
 			}
 		}elseif($action=='verify_candidate'){
-			$candidate_id=$function->sanitize($input[1]);
-			$verify_status=$upload->verifyCandidate($candidate_id);
+			$nid=$function->sanitize($input[1]);
+			$verify_status=$upload->verifyCandidate($nid);
 			if($verify_status){
 				echo $success;
 			}else{
