@@ -6,7 +6,7 @@ if((isset($request['email']) && $request['email']!="") && (isset($request['passw
 	$email=$function->sanitize($request['email']);
 	$password=$function->sanitize($request['password']);
 	$station=$function->sanitize($request['station']);
-	$login_state=$login->validate_login($email, $password);
+	$login_state=$login->validate_login($email, $password, $station);
 	if($login_state){
 		//get session data
 		$sessionData=$login->session_data($email, $password);

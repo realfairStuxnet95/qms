@@ -2,6 +2,7 @@
   $title='';
    require 'authorization.php';
    require 'classes_loader.php';
+   require 'const.php';
    if(isset($_GET['training']) && $_GET['training']!=''){
         $training=$_GET['training'];
         $check_training=$upload->checkTraining($training);
@@ -52,7 +53,57 @@
                 <div class="mdk-header-layout__content top-navbar mdk-header-layout__content--scrollable h-100">
                     <!-- main content -->
                     <div class="container-fluid">
-
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row">
+                             <div class="col-lg-4">
+                                <div class="card card-body flex-row align-items-center bg-danger text-white">
+                                   <h5 class="m-0"><i class="fa fa-user-plus"></i> 
+                                      UNAPPROVED CANDIDATES
+                                   </h5>
+                                   <div class="text-white ml-auto">
+                                      <?php 
+                                      $compare_date=date("Y-m-d");
+                                      $training=$_SESSION['station'];
+                                      $trainees=$admin->uploadedCandidates('UNAPPROVED',$compare_date,$training);
+                                      echo '<strong>'.count($trainees).'</strong>';
+                                      ?>
+                                   </div>
+                                </div>
+                             </div>
+                            <div class="col-lg-4">
+                              <div class="card card-body flex-row align-items-center bg-success text-white">
+                                 <h5 class="m-0"><i class="fa fa-user-plus"></i> 
+                                    APPROVED CANDIDATES
+                                 </h5>
+                                 <div class="text-white ml-auto">
+                                    <?php 
+                                    $compare_date=date("Y-m-d");
+                                    $training=$_SESSION['station'];
+                                    $trainees=$admin->uploadedCandidates('APPROVED',$compare_date,$training);
+                                    echo '<strong>'.count($trainees).'</strong>';
+                                    ?>
+                                 </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="card card-body flex-row align-items-center badge-warning text-white">
+                                 <h5 class="m-0"><i class="fa fa-user-plus"></i> 
+                                    NO-SHOW CANDIDATES
+                                 </h5>
+                                 <div class="text-white ml-auto">
+                                    <?php 
+                                    $compare_date=date("Y-m-d");
+                                    $training=$_SESSION['station'];
+                                    $trainees=$admin->uploadedCandidates('ABSENCE',$compare_date,$training);
+                                    echo '<strong>'.count($trainees).'</strong>';
+                                    ?>
+                                 </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                         <div class="card">
                             <div class="card-header">
                               <div class="row">
@@ -69,9 +120,12 @@
                                   </h4>
                                 </div>
                                 <div class="col-lg-9">
-                                  <a id="btnStartTraining" class="btn btn-success" href="display" target="_blank">
+                                  <a class="btn btn-success btn-lg" href="display" target="_blank">
                                     DISPLAY QUEUE
                                   </a>
+                                 <a class="btn btn-danger btn-lg btnReportAbsence text-white">
+                                    REPORT AS NO SHOW
+                                  </a> 
                                 </div>
                               </div>
                             </div>
@@ -96,9 +150,12 @@
                                             $compare_date=date("Y-m-d");
                                             $trainees=array();
                                             if(isset($_GET['action']) && $_GET['action']=='approved'){
-                                              $trainees=$upload->systemDisplay("APPROVED",$compare_date);
-                                            }else{
-                                              $trainees=$upload->systemDisplay('UNAPPROVED',$compare_date);
+                                              $trainees=$upload->systemDisplay("APPROVED",$compare_date,$training);
+                                            }elseif(isset($_GET['action']) && $_GET['action']=='absence'){
+                                              $trainees=$upload->systemDisplay("ABSENCE",$compare_date,$training);
+                                            }
+                                            else{
+                                              $trainees=$upload->systemDisplay('UNAPPROVED',$compare_date,$training);
                                             }
                                             foreach ($trainees as $key => $value) {
                                                ?>

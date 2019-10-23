@@ -24,7 +24,7 @@ class File extends Execute{
 		return $this->updating($sql);
 	}
 	public function loadSystemUsers(){
-		$query="SELECT * FROM ".Tables::users()." WHERE status!='DELETED' ORDER BY names DESC";
+		$query="SELECT * FROM ".Tables::users()." WHERE status!='DELETED' ORDER BY user_id DESC";
 		return $this->querying($query);
 	}
 	public function loadStations(){
@@ -83,7 +83,7 @@ class File extends Execute{
 		return $this->select_multi_clause(Tables::system_tables(),$credentials);
 	}
 	public function getAllTables($station_id){
-		$sql="SELECT * FROM ".Tables::system_tables()." WHERE status!='DELETED' AND training_id=\"$station_id\"  ORDER BY name ASC";
+		$sql="SELECT * FROM ".Tables::system_tables()." WHERE training_id=\"$station_id\"  ORDER BY name ASC";
 		return $this->querying($sql);
 	}
 	//get system tables
@@ -124,10 +124,6 @@ class File extends Execute{
 		$data=array("status"=>'DELETED');
 		$where=array("user_id"=>$userId);
 		return $this->query_update(Tables::users(),$where,$data);
-	}
-	public function saveUser($names,$email,$type,$pwd){
-		$array=array("names"=>$names,"email"=>$email,"user_type"=>$type,"password"=>$pwd,'status'=>'ACTIVE');
-		return $this->multi_insert(Tables::users(),$array);
 	}
 	public function desactivateUser($userId){
 		$data=array("status"=>'INACTIVE');
@@ -231,20 +227,20 @@ class File extends Execute{
 	}
 
 	//MANAGE SYSTEM DISPAY
-	public function systemDisplay($status,$compare_date){
-		$sql="SELECT * FROM uploaded_file WHERE status=\"$status\" and savedDate LIKE \"%$compare_date%\"";
+	public function systemDisplay($status,$compare_date,$training_id){
+		$sql="SELECT * FROM uploaded_file WHERE (status=\"$status\" AND training_id=\"$training_id\") and savedDate LIKE \"%$compare_date%\"";
 		return $this->querying($sql);
 	}
 	public function needToVerify($compare_date){
 		$sql="SELECT * FROM uploaded_file WHERE verified!='YES' AND status='APPROVED' and savedDate LIKE \"%$compare_date%\" ORDER BY file_id DESC";
 		return $this->querying($sql);
 	}
-	public function SystemOutput($compare_date,$start_time,$end_time){
+	public function SystemOutput($compare_date,$start_time,$end_time,$station_id){
 		$sql='';
 		if($start_time!='' && $end_time!=''){
-			$sql="SELECT * FROM uploaded_file WHERE status='APPROVED' AND (approved_time BETWEEN \"$start_time\" AND \"$end_time\") AND savedDate LIKE \"%$compare_date%\"";
+			$sql="SELECT * FROM uploaded_file WHERE (status='APPROVED' AND training_id=\"$station_id\") AND (approved_time BETWEEN \"$start_time\" AND \"$end_time\") AND savedDate LIKE \"%$compare_date%\"";
 		}else{
-			$sql="SELECT * FROM uploaded_file WHERE status='APPROVED' and savedDate LIKE \"%$compare_date%\"";
+			$sql="SELECT * FROM uploaded_file WHERE (status='APPROVED' AND training_id=\"$station_id\") and savedDate LIKE \"%$compare_date%\"";
 		}
 		
 		return $this->querying($sql);

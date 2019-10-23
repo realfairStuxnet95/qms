@@ -1,6 +1,7 @@
 <?php 
    require 'authorization.php';
    require 'classes_loader.php';
+   require 'const.php';
    if(isset($_GET['training']) && $_GET['training']!=''){
         $training=$function->sanitize($_GET['training']);
         $check_training=$upload->checkTraining($training);

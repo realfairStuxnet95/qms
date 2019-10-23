@@ -31,12 +31,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $systemTables=array();
-                    if(isset($_GET['action']) && $_GET['action']=='approved'){
-                      $systemTables=$upload->getTables('AVAILABLE',$_SESSION['station']);
-                    }else{
-                      $systemTables=$upload->getAllTables($_SESSION['station']);
-                    }
+                    $systemTables=$upload->getAllTables($_SESSION['station']);
                     foreach ($systemTables as $key => $value) {
                        ?>
                        <tr>
@@ -71,8 +66,8 @@
                            </td>
                            <td>
                             <div class="btn-group">
-                              <a table_id="<?php echo $value['table_id']; ?>" computer_name="<?php echo $value['name']; ?>" href="#" class="btn btn-primary btn_pc_edit">
-                                <i class="fa fa-edit"></i>
+                              <a table_id="<?php echo $value['table_id']; ?>" computer_name="<?php echo $value['name']; ?>" href="#" class="btn btn-primary btn_pc_edit" data-toggle="tooltip" title="Edit Computer">
+                                <i class="fa fa-pencil"></i>
                               </a>
                               <?php 
                               if($value['status']=='AVAILABLE'){

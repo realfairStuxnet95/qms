@@ -123,6 +123,27 @@ public function formatDate($datetime, $full = false) {
         date_default_timezone_set("Africa/Kigali");
         return date("h:i");
     }
+
+    public function displayAlert($message){
+        ?>
+        <script type="text/javascript">
+            alert("<?php echo $message; ?>");
+        </script>
+        <?php
+    }
+    public function redError($message){
+        $new_message='<p style="background: #FF2617;color: #fff;text-align: center;padding: 10px;display: block;margin:5px;">'.$message.'</p>';
+        echo $new_message;
+    }
+    public function successMessage($message){
+        $new_message='<p style="background: #009966;color: #fff;text-align: center;padding: 10px;display: block;margin:5px;border-radius:5px;">'.$message.'</p>';
+        echo $new_message;
+    }
+    public function backToUrl($url){
+        ?>
+        <script type="text/javascript">window.location.assign("<?php echo $url; ?>");</script>
+        <?php
+    }
 }
 $function=new Validate();
 ?>

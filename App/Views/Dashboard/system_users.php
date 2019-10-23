@@ -24,6 +24,7 @@ $system_users=$upload->loadSystemUsers();
             <table class="table table-bordered">
               <thead>
                 <tr>
+                  <th>Station</th>
                   <th>Names</th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -35,8 +36,12 @@ $system_users=$upload->loadSystemUsers();
               <tbody>
                 <?php 
                 foreach ($system_users as $key => $value) {
+                  $station_name=$admin->getFieldValue("training","station","training_id",$value['station_id']);
                   ?>
                     <tr>
+                      <td>
+                        <?php echo $station_name; ?>
+                      </td>
                       <td>
                         <?php echo $value['names']; ?>
                       </td>

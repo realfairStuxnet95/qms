@@ -10,8 +10,8 @@ class Login extends Execute{
 		$password=$function->sanitize($_POST['password']);
 	}
 
-	public function validate_login($email = '', $password = ''){
-		$credentials=array("email"=>$email,"password"=>$password);
+	public function validate_login($email = '', $password = '', $station = ''){
+		$credentials=array("email"=>$email,"password"=>$password,"station_id"=>$station);
 		$status=false;
 		$resultSet=$this->multi_select("system_users",$credentials);
 		if(is_array($resultSet)){

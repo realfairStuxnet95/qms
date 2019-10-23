@@ -19,7 +19,7 @@
                       <label for="pwd">Table Capacity</label>
                       <input type="number" class="form-control" id="Tablenumber" name="number" value="10" required>
                     </div>
-                    <button type="submit" class="btn btn-success">SAVE TABLE</button>
+                    <button type="submit" class="btn btn-success">SAVE COMPUTER</button>
                   </form>
                   <div id="divLoader" class="loading-circle-border" style="margin: 10px 40px auto;display: none;width: 80px;height: 80px;"></div>
               </div>

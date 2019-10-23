@@ -3,6 +3,7 @@ error_reporting(0);
 require 'classes_loader.php';
 $start_time='';
 $end_time='';
+$station_id=$_SESSION['station'];
 if((isset($_GET['start_time']) && $_GET['start_time']!='') && (isset($_GET['end_time']) && $_GET['end_time']!='')){
   $start_time=$_GET['start_time'];
   $end_time=$_GET['end_time'];
@@ -10,7 +11,7 @@ if((isset($_GET['start_time']) && $_GET['start_time']!='') && (isset($_GET['end_
 }
 $compare_date=date("Y-m-d");
 $Today=date("d-m-y");
-$Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time);
+$Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time,$station_id);
 //var_dump($Candidates);
 ?>
 <!DOCTYPE html>

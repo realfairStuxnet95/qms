@@ -160,6 +160,14 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
+		}elseif($action=='report_absence'){
+			$compare_date=date("Y-m-d");
+			$update=$admin->updateAbsenceStatus($compare_date);
+			if($update){
+				echo $success;
+			}else{
+				echo $error;
+			}
 		}
 	}	
 }else{

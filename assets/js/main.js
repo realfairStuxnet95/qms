@@ -64,6 +64,12 @@ $(document).ready(function(){
 			saveData(input,"tables?training=1");
 		}
 	});
+	$("a.btnReportAbsence").click(function(){
+		input[0]="report_absence";
+		if(confirm("Do you want to confirm Remaining Un-Approved Candidate ?")){
+			saveData(input,"dashboard");
+		}
+	});
 	//upload banner
 	$("#uploadFile").on("change",function(){
 		var file=document.getElementById("uploadFile").files[0];
@@ -163,29 +169,29 @@ $(document).ready(function(){
 			saveData(input,"tables?training="+station_id+"&action=time_slot");
 		}
 	});
-	$("#frm_save_user").submit(function(e){
-		e.preventDefault();
-		var names=$("#names").val();
-		var email=$("#email").val();
-		var user_type=$("#select_type").val();
-		var pwd=$("#pwd").val();
-		var cpwd=$("#cpwd").val();
+	// $("#frm_save_user").submit(function(e){
+	// 	e.preventDefault();
+	// 	var names=$("#names").val();
+	// 	var email=$("#email").val();
+	// 	var user_type=$("#select_type").val();
+	// 	var pwd=$("#pwd").val();
+	// 	var cpwd=$("#cpwd").val();
 
-		if(pwd.length>=6){
-			if(pwd.match(cpwd)){
-				input[0]='save_user';
-				input[1]=names;
-				input[2]=email;
-				input[3]=user_type;
-				input[4]=pwd;
-				saveData(input,"dashboard?request=system_users");
-			}else{
-				alert("Passwords Do not Match");
-			}
-		}else{
-			alert("Password Must atleast 6 Characters");
-		}
-	});
+	// 	if(pwd.length>=6){
+	// 		if(pwd.match(cpwd)){
+	// 			input[0]='save_user';
+	// 			input[1]=names;
+	// 			input[2]=email;
+	// 			input[3]=user_type;
+	// 			input[4]=pwd;
+	// 			saveData(input,"dashboard?request=system_users");
+	// 		}else{
+	// 			alert("Passwords Do not Match");
+	// 		}
+	// 	}else{
+	// 		alert("Password Must atleast 6 Characters");
+	// 	}
+	// });
 	$("#frm_approve").submit(function(e){
 		e.preventDefault();
 		var trainee_info=$("#trainee_info").val();
@@ -205,6 +211,7 @@ $(document).ready(function(){
 		input[0]='save_table';
 		input[1]=Tablename;
 		input[2]=Tablenumber;
+		input[3]=station_id;
 		saveData(input,"tables?training="+station_id);
 	});
 	$("#frm_save_slot").submit(function(e){

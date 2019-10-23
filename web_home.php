@@ -1,6 +1,7 @@
 <?php 
    require 'authorization.php';
    require 'classes_loader.php';
+   require 'const.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -43,6 +44,9 @@
                   elseif($request=='add_user'){
                     include 'App/Views/Dashboard/add_user.php';
                   }
+                  elseif($request=='change_password'){
+                    include 'App/Views/Dashboard/change_password.php';
+                  }
                   elseif($request=='verified_candidates'){
                     include 'App/Views/Dashboard/verify_officer.php';
                   }elseif($request=='in_exam'){
@@ -55,11 +59,7 @@
 
                   }
                }else{
-                  ?>
-                  <script type="text/javascript">
-                    //window.location="data?training=123";
-                  </script>
-                  <?php
+                include 'App/Views/Dashboard/dashboard.php';
                }
                ?>
             </div>

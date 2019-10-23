@@ -86,7 +86,7 @@ class Execute extends Query{
 				$j++;
 			}
 			
-			//$output=$query;
+			// $output=$query;
 			$output=$this->select($query);
 			return $output;
 		}else{
