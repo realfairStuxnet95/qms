@@ -6,8 +6,10 @@ $end_time='';
 if((isset($_GET['start_time']) && $_GET['start_time']!='') && (isset($_GET['end_time']) && $_GET['end_time']!='')){
   $start_time=$_GET['start_time'];
   $end_time=$_GET['end_time'];
+  $range=$start_time.' - '.$end_time;
 }
 $compare_date=date("Y-m-d");
+$Today=date("d-m-y");
 $Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time);
 //var_dump($Candidates);
 ?>
@@ -29,7 +31,7 @@ $Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time);
 <div class="container">
   <?php include 'App/Views/Display/approve_form.php'; ?>
   <h2 style="margin:10px;background: #009966;color: #FFF;">
-    <?php echo $compare_date." Total Candidates: ".count($Candidates); ?>
+    <?php echo '<font style="color:white;">'.$Today.'</font> <font style="color:white;">Candidates: '.count($Candidates).'</font> <font style="color:white;font-weight:bold;">Range: '.$range.'</font>'; ?>
     <span id="divTime" class="pull right">
       
     </span>

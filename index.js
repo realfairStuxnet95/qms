@@ -25,7 +25,7 @@ function sendRequest(currentTime){
 function loadCurrentTime(){
 	var dt = new Date();
 	var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-	$("#divTime").html(time);
+	$("#divTime").html("Current time: "+time);
 	sendRequest(time);
 }
 
