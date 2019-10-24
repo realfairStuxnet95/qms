@@ -244,6 +244,7 @@ class File extends Execute{
 		}
 		
 		return $this->querying($sql);
+		// return $sql;
 	}
 }
 $upload=new File();

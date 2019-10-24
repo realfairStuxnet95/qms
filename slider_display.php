@@ -1,6 +1,10 @@
 <?php 
+   require 'authorization.php';
+   require 'classes_loader.php';
+   require 'const.php';
+?>
+<?php 
 error_reporting(0);
-require 'classes_loader.php';
 $start_time='';
 $end_time='';
 $station_id=$_SESSION['station'];
@@ -12,7 +16,8 @@ if((isset($_GET['start_time']) && $_GET['start_time']!='') && (isset($_GET['end_
 $compare_date=date("Y-m-d");
 $Today=date("d-m-y");
 $Candidates=$upload->SystemOutput($compare_date,$start_time,$end_time,$station_id);
-//var_dump($Candidates);
+// var_dump($Candidates);
+// die();
 ?>
 <!DOCTYPE html>
 <html lang="en">
