@@ -144,6 +144,18 @@ public function formatDate($datetime, $full = false) {
         <script type="text/javascript">window.location.assign("<?php echo $url; ?>");</script>
         <?php
     }
+
+    public function extract_array($array,$field_name){
+        $field_value='';
+        if(is_array($array)){
+            foreach ($array as $key => $value) {
+                $field_value=$value[$field_name];
+            }
+        }else{
+            $field_value="Invalid Field";
+        }
+        return $field_value;
+    }
 }
 $function=new Validate();
 ?>

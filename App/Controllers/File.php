@@ -169,8 +169,8 @@ class File extends Execute{
 		$resultSet=$this->querying($query);
 		return $resultSet;
 	}
-	public function getFreeTable(){
-		$query="SELECT * FROM system_tables WHERE status='AVAILABLE'";
+	public function getFreeTable($training_id){
+		$query="SELECT * FROM system_tables WHERE training_id=\"$training_id\" status='AVAILABLE'";
 		$resultSet=$this->querying($query);
 		$table_id=0;
 		foreach ($resultSet as $key => $value) {
