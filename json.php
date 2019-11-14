@@ -2,6 +2,7 @@
 $server="localhost";
 $user="root";
 $pwd='Police@123!@';
+// $pwd='';
 $db='queue_store';
 require $_SERVER['DOCUMENT_ROOT'].'/queue/classes_loader.php';
 $con=mysqli_connect($server,$user,$pwd,$db);
@@ -17,7 +18,7 @@ if($con){
 			if($approve){
 				$response=$upload->validateNID($nid);
 				foreach ($response as $key => $value) {
-					$data[]=array("trainee_names"=>$value['trainee_names'].' '.$value['lnames'],"trainee_number"=>$value['trainee_number'],"reg_number"=>$value['reg_id'],"train_time"=>$value['train_time'],"training_date"=>$value['train_date'],"pc"=>$upload->getTable($pc_id));
+					$data[]=array("trainee_names"=>$value['trainee_names'].' '.$value['lnames'],"trainee_number"=>$value['trainee_number'],"reg_number"=>$value['reg_id'],"train_time"=>$value['train_time'],"training_date"=>$value['train_date'],"pc"=>$upload->getTable($pc_id),"station"=>$training_id);
 				}
 				//array_push($response,array("pc"=>$upload->getTable($pc_id)));
 				echo json_encode($data);

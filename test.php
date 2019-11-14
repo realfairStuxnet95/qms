@@ -1,8 +1,7 @@
 <?php 
 require 'classes_loader.php';
 
-$email="1";
-$password="police2016";
-$check_mail=$admin->checkUserPassword($email,$password);
-var_dump($check_mail);
+$training_id=1;
+$pc_id=$upload->getFreeTable($training_id);
+var_dump($pc_id);
 ?>

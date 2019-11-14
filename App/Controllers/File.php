@@ -170,14 +170,14 @@ class File extends Execute{
 		return $resultSet;
 	}
 	public function getFreeTable($training_id){
-		$query="SELECT * FROM system_tables WHERE training_id=\"$training_id\" status='AVAILABLE'";
+		$query="SELECT * FROM system_tables WHERE training_id=\"$training_id\" AND status='AVAILABLE'";
 		$resultSet=$this->querying($query);
 		$table_id=0;
 		foreach ($resultSet as $key => $value) {
 			$table_id=(int)$value['table_id'];
 			break;
 		}
-		return $table_id;
+		return $resultSet;
 	}
 	public function checkTables($slot_id,$table_id){
 		$query="SELECT * FROM system_tables";
