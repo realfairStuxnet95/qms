@@ -1,8 +1,8 @@
 <?php 
 $server="localhost";
 $user="root";
-$pwd='Police@123!@';
-// $pwd='';
+// $pwd='Police@123!@';
+$pwd='';
 $db='queue_store';
 require $_SERVER['DOCUMENT_ROOT'].'/queue/classes_loader.php';
 $con=mysqli_connect($server,$user,$pwd,$db);
@@ -14,7 +14,7 @@ if($con){
 		if(count($response)>0){
 			$pc_id=$upload->getFreeTable($training_id);
 			$approved_time=$function->getCurrentTime();
-			$approve=$upload->approveTrainee($nid,$pc_id,$approved_time);
+			$approve=$upload->approveTrainee($nid,$pc_id,$training_id,$approved_time);
 			if($approve){
 				$response=$upload->validateNID($nid);
 				foreach ($response as $key => $value) {

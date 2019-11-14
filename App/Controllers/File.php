@@ -63,10 +63,10 @@ class File extends Execute{
         $start_date = date('H:i:s',$timed);
         return $start_date;
     }
-	public function approveTrainee($number,$table_id,$approved_time){
+	public function approveTrainee($number,$table_id,$training_id,$approved_time){
 		$where=array("trainee_number"=>$number);
 		$array=array("table_id"=>$table_id,"status"=>'APPROVED','train_date'=>date("d/m/Y"),"approved_time"=>$approved_time);
-		$new_slot=array("table_id"=>$table_id);
+		$new_slot=array("table_id"=>$table_id,"training_id"=>$training_id);
 		$new_value=array("status"=>'TAKEN');
 		$new_status=$this->query_update(Tables::system_tables(),$new_slot,$new_value);
 		return $this->query_update(Tables::file_upload(),$where,$array);
@@ -177,7 +177,7 @@ class File extends Execute{
 			$table_id=(int)$value['table_id'];
 			break;
 		}
-		return $resultSet;
+		return $table_id;
 	}
 	public function checkTables($slot_id,$table_id){
 		$query="SELECT * FROM system_tables";
