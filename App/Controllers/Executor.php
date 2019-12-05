@@ -62,7 +62,7 @@ class Execute extends Query{
 				$query.=$key;
 				$query.="=\"$value\"";
 				if($j<(count($where)-1)){
-					$query.="AND";
+					$query.=" AND ";
 				}
 				$j++;
 			}
