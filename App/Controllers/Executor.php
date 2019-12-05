@@ -69,8 +69,8 @@ class Execute extends Query{
 		}else{
 
 		}
-		//return $query;
-		return $this->update($query);
+		return $query;
+		// return $this->update($query);
 	}
 	public function select_multi_clause($table,$credentials){
 		$output=array();
