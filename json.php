@@ -16,6 +16,8 @@ if($con){
 			$approved_time=$function->getCurrentTime();
 			$approve=$upload->approveTrainee($nid,$pc_id,$training_id,$approved_time);
 			if($approve){
+				//update
+				$change_status=$upload->changeComputerStatus($pc_id,$training_id);
 				$response=$upload->validateNID($nid);
 				foreach ($response as $key => $value) {
 					$data[]=array("trainee_names"=>$value['trainee_names'].' '.$value['lnames'],"trainee_number"=>$value['trainee_number'],"reg_number"=>$value['reg_id'],"train_time"=>$value['train_time'],"training_date"=>$value['train_date'],"pc"=>$upload->getTable($pc_id),"station"=>$training_id);
